@@ -1,0 +1,1 @@
+#changelist.pinned{position:fixed;top:0}#changelist{max-height:100vh;overflow:hidden}#changelist table thead.fixed-header{position:absolute}#changelist table thead:not(.fixed-header){opacity:0}#changelist table thead,#changelist table thead.fixed-header th{height:18px}#changelist-filter{max-height:100%}

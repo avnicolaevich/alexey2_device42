@@ -1,0 +1,2238 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru" xml:lang="ru" >
+<head>
+    <title>Выберите Устройство для просмотра | Device42</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta charset="UTF-8">
+    <style>
+        #jswarning { color: red; font-weight: bold; padding: 18px 0 0 20px; }
+        .nojs-banner {
+            background: #fff6bf  center no-repeat;
+            background-position: 15px 50%;
+            text-align: left;
+            padding: 5px 20px 5px 45px;
+            border-top: 2px solid #ffd324;
+            border-bottom: 2px solid #ffd324;
+        }
+        .ui-helper-hidden-accessible { display:none; }
+        #go-to-bottom{position:fixed;bottom:20px;right:20px;display:none; z-index:999999;}#go-to-bottom a{display:block;width:40px;height:40px;background:#999 url('/static/media/img/admin/backtobottom.png') no-repeat center center;text-indent:-9999px;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;-webkit-transition:.4s all ease;-moz-transition:.4s all ease;-o-transition:.4s all ease;transition:.4s all ease}#go-to-bottom a:hover{background-color:#2da0ce;}
+    </style>
+    <link rel="stylesheet" type="text/css" href="../../../static/admin/css/base.css" />
+    <link rel="stylesheet" type="text/css" href="../../../static/admin/css/print.css"  media="print" />
+    <link type="text/css" href="../../../static/js/jqueryui/jquery-ui-smoothness.min.css" rel="stylesheet"/>
+    <!--[if lte IE 7]><!--<link rel="stylesheet" type="text/css" href="../../../static/admin/css/ie.css" />--><![endif]-->
+    <link rel="stylesheet" type="text/css" media="screen" href="../../../static/admin_tools/css/theming.css" />
+    <link rel="stylesheet" href="../../../static/admin_tools/css/menu.css" type="text/css" media="screen, projection"/>
+    <!--[if lt IE 8]>
+    <!--<link rel="stylesheet" href="/static/admin_tools/css/menu-ie.css" type="text/css" media="screen, projection"/>-->
+    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="../../../static/admin/css/changelists.css" />
+    <link rel="stylesheet" type="text/css" href="../../../static/js/custom/sticky_header_changelist.css"/>
+
+    <script type="text/javascript">window.__admin_media_prefix__ = "../../../static/admin/";</script>
+    <script type="text/javascript" src="../../../static/js/jquery-1.7.2.js"></script>
+    <script src="../../../static/js/jqueryui/jquery-ui-smoothness.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../../../static/js/custom/header_interaction.js"></script>
+
+
+    <!--<script type="text/javascript" src="/jsi18n/?language=ru"></script>-->
+    <script type="text/javascript" src="../../../static/js/custom/d42_localize.js"></script>
+
+
+
+    <script type="text/javascript" src="../../../static/admin/js/core.js"></script>
+    <script type="text/javascript" src="../../../static/admin/js/admin/RelatedObjectLookups.js"></script>
+    <script type="text/javascript" src="../../../static/admin/js/jquery.min.js"></script>
+    <script type="text/javascript" src="../../../static/admin/js/jquery.init.js"></script>
+    <script type="text/javascript" src="../../../static/admin/js/actions.min.js"></script>
+    <script type="text/javascript" src="../../../static/js/external/jquery.cookie.js"></script>
+    <script type="text/javascript">
+        (function($) {
+            $(document).ready(function($) {
+
+                $("tr input.action-select").actions();
+
+
+                gotobottom();
+
+                $('#go-to-bottom').click(function() {
+                    var target = $('html,body');
+                    var headerHeight = $("#header").height();
+                    //target.animate({scrollTop: target.height() + headerHeight}, 1000);
+                    //alert($( document ).height() +'          '+$( window ).height() + '        '+target.height());
+                    target.animate({scrollTop: /*target.height()*/ $( document ).height() + headerHeight}, 1000);
+                    return false;
+                });
+            });
+        })(django.jQuery);
+
+    </script>
+
+    <script type="text/javascript">
+        var has_custom_fields = false;
+
+        has_custom_fields = true;
+
+        var modulename = "rackraj_device";
+        modulename = modulename.replace("rackraj_", "").replace("rowmgmt_", "");
+        var model_name = "rackraj" + "__AM__" + "Device";
+    </script>
+    <script type="text/javascript" src="../../../static/js/custom/mutation_observer.js"></script>
+    <script type="text/javascript" src="../../../static/js/custom/custom_change_list.js"></script>
+
+    <script type="text/javascript">
+
+        $(function() {
+            var up = window.location.pathname;
+            $("#searchbar").autocomplete({
+                source: "/api/1.0/listsearch/?m="+up,
+                minLength: 3,
+                select: function( event, ui ) {
+                    window.location.href = ui.item.link;
+                }
+            });
+        });
+
+        function gotobottom()
+        {
+            var height = $(window).height();
+            var scrollTop = $(window).scrollTop();
+            var obj = $("#footer");
+            var pos = obj.position();
+            if (height + scrollTop > pos.top) {
+                $("#go-to-bottom").fadeOut(100);
+            }
+            else
+            {
+                $("#go-to-bottom").fadeIn(100);
+            }
+        }
+        $( window ).scroll(function() {
+            gotobottom();
+        });
+    </script>
+
+
+    <meta name="robots" content="NONE,NOARCHIVE" />
+    <noscript>
+        <div id="jswarning" class="nojs-banner"> <p>JavaScript seems to be Disabled! Some of the features are unavailable unless JavaScript is enabled.</p> </div>
+    </noscript>
+</head>
+
+<body class="change-list">
+<!-- Container -->
+<div id="container">
+
+    <!-- Header -->
+    <div id="header">
+        <div id="branding">
+
+            <h1 id="site-name">Device42</h1>
+
+
+            <div style="left: 120px;">
+                <input id="search" class="header-item">
+                <div class="dropdown" style="left: 0; display: none;">
+                    <ul>
+                        <li>Result 1</li>
+                        <li>Result 2</li>
+                        <li>Result 3</li>
+                        <li>Result 4</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="logo_user_block" style="right: 0">
+                <div id="company_logo">&nbsp;</div>
+
+                <div id="user-tools" style="display: inline-block;">
+                    <!-- Добро пожаловать, -->
+                    <strong id="user-tools-trigger" class="header-item" style="cursor: pointer;"  trigger-dropdown="true">d42_d42</strong>
+                    <div class="dropdown" style="right: 0; display: none;">
+
+
+
+
+                        <ul>
+
+
+                            <li href="/admin/password_change/">
+
+                                Изменить пароль
+                            </li>
+
+                            <li href="/admin/logout/">
+
+                                Выход
+                            </li>
+                        </ul>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+
+        <script type="text/javascript" src="../../../static/admin_tools/js/utils.js"></script>
+        <script type="text/javascript" charset="utf-8">
+
+            // Load js files syncronously and conditionally
+            var js_files = [
+                {
+                    src : '/static/admin_tools/js/jquery/jquery.min.js',
+                    test: function() { return typeof(jQuery) == 'undefined'; }
+                },
+                {
+                    src : '/static/admin_tools/js/json.min.js',
+                    test: function() { return typeof(JSON.stringify) == 'undefined'; }
+                },
+                {
+                    src : '/static/admin_tools/js/menu.js',
+                    test: function() { return true; }
+                }
+            ];
+
+            loadScripts(js_files, function(){
+                jQuery(function($) {
+
+                    process_bookmarks(
+                        "/admin/rackraj/device/",
+                        "Выберите Устройство для просмотра",
+                        "Пожалуйста, введите имя для закладки"
+                    );
+
+                });
+            });
+
+        </script>
+        <script type="text/javascript">
+            $(function() {
+                $(".instantsrch").autocomplete({
+                    source: "/internal/ajax/search/",
+                    minLength: 3,
+                    select: function( event, ui ) {
+                        window.location.href = ui.item.link;
+                    }
+                });
+                function split( val ) {
+                    return val.split( /,\s*/ );
+                }
+                $('#id_tags').autocomplete({
+                    source: "/internal/ajax/taglist/",
+                    focus: function() {
+                        return false;
+                    },
+                    select: function( event, ui ) {
+                        var terms = split( this.value );
+                        terms.pop();
+                        terms.push( ui.item.value );
+                        terms.push( "" );
+                        this.value = terms.join( ", " );
+                        return false;
+                    }
+                });
+            });
+        </script>
+
+
+
+
+
+
+        <form id="bookmark-form" action="/admin_tools/menu/add_bookmark/" method="POST">
+            <input type="hidden" name="next" value="/admin/rackraj/device/" />
+            <input type="hidden" name="url" value="/admin/rackraj/device/" />
+            <input type="hidden" name="title" value="Выберите Устройство для просмотра" />
+            <button id="bookmark-button" type="submit">Добавить</button>
+        </form>
+
+
+
+
+
+        <ul id="navigation-menu">
+
+            <li class="menu-item first"><a href="/admin/rackraj/tools/dashboard/"><span>Главная</span></a></li>
+
+            <li class="menu-item"><a href="#"><span>Центр обработки данных</span><span class="icon"></span></a><ul><li class="menu-item"><a href="/admin/rackraj/building/"><span>Здания</span></a></li><li class="menu-item"><a href="/admin/rackraj/room/"><span>Помещения</span></a></li><li class="menu-item"><a href="/admin/rackraj/rack/"><span>Стойки</span></a></li><li class="menu-item"><a href="#"><span>Power Units</span><span class="icon"></span></a><ul><li class="menu-item"><a href="/admin/rackraj/pdu/"><span>Power Units</span></a></li><li class="menu-item"><a href="/admin/rackraj/pdu_model/"><span>Power Unit Models</span></a></li></ul></li><li class="menu-item"><a href="/admin/rackraj/organisation/"><span>Поставщики</span></a></li><li class="menu-item"><a href="/admin/rackraj/hardware/"><span>Модели оборудования</span></a></li><li class="menu-item"><a href="#"><span>Детали</span><span class="icon"></span></a><ul><li class="menu-item"><a href="/admin/rackraj/partmodel/"><span>Список моделей</span></a></li><li class="menu-item"><a href="/admin/rackraj/part/"><span>Список деталей</span></a></li></ul></li><li class="menu-item"><a href="/admin/rackraj/customer/"><span>Customers/Departments</span></a></li><li class="menu-item"><a href="/admin/rackraj/endusers/"><span>Конечные пользователи</span></a></li><li class="menu-item"><a href="/admin/rackraj/purchase/"><span>Закупки</span></a></li><li class="menu-item"><a href="/admin/rackraj/cable/"><span>Cables</span></a></li><li class="menu-item"><a href="/admin/rackraj/circuit/"><span>Telco Circuits</span></a></li><li class="menu-item"><a href="/admin/rackraj/powercircuit/"><span>Силовые цепи</span></a></li><li class="menu-item"><a href="/admin/rackraj/device_service_profile/"><span>UCS Service Profiles</span></a></li><li class="menu-item"><a href="/admin/rackraj/devicecategory/"><span>Object Categories</span></a></li><li class="menu-item"><a href="/admin/rackraj/tools/devicetree/"><span>Building Hierarchy</span></a></li><li class="menu-item"><a href="/admin/taggit/tag/"><span>Теги</span></a></li></ul></li>
+
+            <li class="menu-item selected"><a href="#"><span>Устройства</span><span class="icon"></span></a><ul><li class="menu-item selected"><a href="/admin/rackraj/device/"><span>Все устройства</span></a></li><li class="menu-item"><a href="/admin/rackraj/device_physical/"><span>Физические устройства</span></a></li><li class="menu-item"><a href="/admin/rackraj/device_virtual/"><span>Виртуальные устройства</span></a></li><li class="menu-item"><a href="/admin/rackraj/device_blade/"><span>Блейд-устройства</span></a></li><li class="menu-item"><a href="/admin/rackraj/device_cluster/"><span>Кластерные устройства</span></a></li><li class="menu-item"><a href="/admin/rackraj/device_unknown/"><span>Неизвестные устройства</span></a></li><li class="menu-item"><a href="/admin/rackraj/device_other/"><span>Прочие устройства</span></a></li><li class="menu-item"><a href="#"><span>Активы</span><span class="icon"></span></a><ul><li class="menu-item"><a href="/admin/rackraj/asset/"><span>Активы</span></a></li><li class="menu-item"><a href="/admin/rackraj/rackassettemplate/"><span>Шаблоны актива для монтажа в стойку</span></a></li><li class="menu-item"><a href="/admin/rackraj/patch_panel_model/"><span>Модели коммутационных панелей</span></a></li><li class="menu-item"><a href="/admin/rackraj/patch_panel_module_model/"><span>Модели модулей коммутационных панелей</span></a></li><li class="menu-item"><a href="/admin/rackraj/tap_module_model/"><span>Модели TAP-модулей</span></a></li></ul></li><li class="menu-item"><a href="#"><span>Мобильный вид</span><span class="icon"></span></a><ul><li class="menu-item"><a href="/admin/rackraj/asset_mobile_view/"><span>Актив</span></a></li><li class="menu-item"><a href="/admin/rackraj/device_mobile_view/"><span>Устройство</span></a></li><li class="menu-item"><a href="/admin/rackraj/rack_mobile_view/"><span>Стойка</span></a></li></ul></li></ul></li>
+
+            <li class="menu-item"><a href="#"><span>IPAM</span><span class="icon"></span></a><ul><li class="menu-item"><a href="/admin/rackraj/ip_address/"><span>IP-адреса</span></a></li><li class="menu-item"><a href="/admin/rackraj/switch_vlan/"><span>VLAN</span></a></li><li class="menu-item"><a href="/admin/rackraj/vrfgroup/"><span>Группа VRF</span></a></li><li class="menu-item"><a href="/admin/rackraj/subnetcategory/"><span>Subnet Categories</span></a></li><li class="menu-item"><a href="/admin/rackraj/vlan/"><span>Подсеть</span></a></li><li class="menu-item"><a href="/admin/rackraj/tools/subnettree/"><span>Дерево подсети</span></a></li><li class="menu-item"><a href="/admin/rackraj/netport/"><span>Порты</span></a></li><li class="menu-item"><a href="/admin/rackraj/dns_zone/"><span>Зоны DNS</span></a></li><li class="menu-item"><a href="/admin/rackraj/dns_records/"><span>Записи DNS</span></a></li><li class="menu-item"><a href="/admin/rackraj/natip/"><span>IP NAT</span></a></li></ul></li>
+
+            <li class="menu-item"><a href="#"><span>ПО</span><span class="icon"></span></a><ul><li class="menu-item"><a href="#"><span>ПО</span><span class="icon"></span></a><ul><li class="menu-item"><a href="/admin/rackraj/software_licensing_model/"><span>Software License Models</span></a></li><li class="menu-item"><a href="/admin/rackraj/software/?ignored=NotIgnored"><span>Компоненты ПО</span></a></li><li class="menu-item"><a href="/admin/rackraj/software_detail/"><span>Используемое ПО</span></a></li><li class="menu-item"><a href="/admin/rackraj/softwareeol/"><span>EOL / EOS</span></a></li></ul></li><li class="menu-item"><a href="#"><span>Службы</span><span class="icon"></span></a><ul><li class="menu-item"><a href="/admin/rackraj/theservice/?service_type__exact=tracked"><span>Службы</span></a></li><li class="menu-item"><a href="/admin/rackraj/servicedetail/"><span>Экземпляры службы</span></a></li><li class="menu-item"><a href="/admin/rackraj/serviceschedule/"><span>Service Schedules</span></a></li><li class="menu-item"><a href="/admin/rackraj/serviceport/"><span>Service Ports</span></a></li><li class="menu-item"><a href="/admin/rackraj/serviceportremoteipstats/?service_port_remote_ip__service_port_ip__is_listening__exact=1"><span>Client Service Port Statistics</span></a></li><li class="menu-item"><a href="/admin/rackraj/networkshare/"><span>Network Shares</span></a></li></ul></li><li class="menu-item"><a href="/admin/rackraj/appcomp/"><span>Компоненты приложения</span></a></li><li class="menu-item"><a href="#"><span>Операционные системы</span><span class="icon"></span></a><ul><li class="menu-item"><a href="/admin/rackraj/os_licensing_model/"><span>OS License Models</span></a></li><li class="menu-item"><a href="/admin/rackraj/os/"><span>Операционные системы</span></a></li><li class="menu-item"><a href="/admin/rackraj/device_os/"><span>Operating Systems In Use</span></a></li><li class="menu-item"><a href="/admin/rackraj/oseol/"><span>EOL/EOS</span></a></li></ul></li><li class="menu-item"><a href="#"><span>Сертификаты</span><span class="icon"></span></a><ul><li class="menu-item"><a href="/admin/rackraj/certificate/"><span>Сертификаты</span></a></li><li class="menu-item"><a href="/admin/rackraj/devicecertificate/"><span>Certificate Instances</span></a></li></ul></li></ul></li>
+
+            <li class="menu-item"><a href="/admin/rowmgmt/password/"><span>Пароли</span></a></li>
+
+            <li class="menu-item"><a href="#"><span>Отчеты</span><span class="icon"></span></a><ul><li class="menu-item"><a href="/admin/reporting/reports/"><span>Отчеты</span></a></li><li class="menu-item"><a href="/admin/reporting/dashboards/"><span>Dashboards</span></a></li><li class="menu-item"><a href="/admin/rackraj/alertnotification"><span>Уведомления</span></a></li><li class="menu-item"><a href="/admin/rackraj/sensorrule"><span>Настроить оповещения</span></a></li><li class="menu-item"><a href="/admin/reporting/delayed_report_tracker"><span>Excel Reports Status</span></a></li></ul></li>
+
+            <li class="menu-item"><a href="#"><span>Инструменты</span><span class="icon"></span></a><ul><li class="menu-item"><a href="/admin/rackraj/tools/import_api_xls/"><span>Импорт/экспорт (xls)</span></a></li><li class="menu-item"><a href="#"><span>Автоопределение</span><span class="icon"></span></a><ul><li class="menu-item"><a href="/admin/autodiscover/remotecollector/"><span>Remote Collectors</span></a></li><li class="menu-item"><a href="/admin/autodiscover/netmap/"><span>TCP Port Scan</span></a></li><li class="menu-item"><a href="/admin/autodiscover/switch/"><span>SNMP</span></a></li><li class="menu-item"><a href="/admin/autodiscover/pingsweep/"><span>Эхо-тестирование</span></a></li><li class="menu-item"><a href="/admin/autodiscover/vserver/"><span>HyperVisors / *nix / Windows</span></a></li><li class="menu-item"><a href="/admin/autodiscover/ucsmanager/"><span>UCS/ACI/F5 API Manager</span></a></li><li class="menu-item"><a href="/admin/autodiscover/dcm/"><span>IPMI / Redfish</span></a></li><li class="menu-item"><a href="/admin/autodiscover/cloudaccount/"><span>Облако</span></a></li><li class="menu-item"><a href="/admin/autodiscover/dnszone/"><span>Синхронизация зон DNS (односторонняя)</span></a></li><li class="menu-item"><a href="/admin/autodiscover/sslcertificates/"><span>Сертификаты</span></a></li><li class="menu-item"><a href="/admin/autodiscover/nmap/"><span>Nmap</span></a></li><li><a href="http://www.device42.com/autodiscovery/" target="_blank">External discovery tools</a></li></ul></li><li class="menu-item"><a href="#"><span>Шаблоны и групповые операции</span><span class="icon"></span></a><ul><li class="menu-item"><a href="/admin/rackraj/transferlocation/"><span>Transfer Between Locations</span></a></li><li class="menu-item"><a href="/admin/rackraj/qr_profiles/"><span>Профили QR</span></a></li><li class="menu-item"><a href="/admin/rackraj/asset_number_profile/"><span>Профиль номера актива</span></a></li><li class="menu-item"><a href="/admin/rackraj/imgfile/"><span>Файлы изображений</span></a></li><li class="menu-item"><a href="/admin/rackraj/asset_action/"><span>Действия по событиям жизненного цикла</span></a></li><li class="menu-item"><a href="/admin/rackraj/device/whatif/"><span>Что если</span></a></li></ul></li><li class="menu-item"><a href="#"><span>Настраиваемые поля</span><span class="icon"></span></a><ul><li class="menu-item"><a href="/admin/rackraj/appcomp_custom_key/"><span>Компоненты приложения</span></a></li><li class="menu-item"><a href="/admin/rackraj/asset_custom_key/"><span>Активы</span></a></li><li class="menu-item"><a href="/admin/rackraj/building_custom_key/"><span>Здания</span></a></li><li class="menu-item"><a href="/admin/rackraj/cable_custom_key/"><span>Cables</span></a></li><li class="menu-item"><a href="/admin/rackraj/certificate_custom_key/"><span>Сертификаты</span></a></li><li class="menu-item"><a href="/admin/rackraj/customer_custom_key/"><span>Клиенты</span></a></li><li class="menu-item"><a href="/admin/rackraj/device_custom_key/"><span>Устройства</span></a></li><li class="menu-item"><a href="/admin/rackraj/dns_records_custom_key/"><span>Записи DNS</span></a></li><li class="menu-item"><a href="/admin/rackraj/hardware_custom_key/"><span>Модели оборудования</span></a></li><li class="menu-item"><a href="/admin/rackraj/ip_address_custom_key/"><span>IP-адреса</span></a></li><li class="menu-item"><a href="/admin/rowmgmt/password_custom_key/"><span>Пароли</span></a></li><li class="menu-item"><a href="/admin/rackraj/netport_custom_key/"><span>Порты</span></a></li><li class="menu-item"><a href="/admin/rackraj/pdu_custom_key/"><span>Power Units</span></a></li><li class="menu-item"><a href="/admin/rackraj/purchase_custom_key/"><span>Закупки</span></a></li><li class="menu-item"><a href="/admin/rackraj/rack_custom_key/"><span>Стойки</span></a></li><li class="menu-item"><a href="/admin/rackraj/room_custom_key/"><span>Помещения</span></a></li><li class="menu-item"><a href="/admin/rackraj/theservice_custom_key/"><span>Службы</span></a></li><li class="menu-item"><a href="/admin/rackraj/servicedetail_custom_key/"><span>Экземпляры службы</span></a></li><li class="menu-item"><a href="/admin/rackraj/software_custom_key/"><span>ПО</span></a></li><li class="menu-item"><a href="/admin/rackraj/software_detail_custom_key/"><span>Software in Use</span></a></li><li class="menu-item"><a href="/admin/rackraj/vlan_custom_key/"><span>Подсети</span></a></li><li class="menu-item"><a href="/admin/rackraj/circuit_custom_key/"><span>Telco Circuits</span></a></li><li class="menu-item"><a href="/admin/rackraj/switch_vlan_custom_key/"><span>Сети VLAN</span></a></li></ul></li><li class="menu-item"><a href="/admin/rackraj/tools/license/"><span>Лицензирование</span></a></li><li class="menu-item"><a href="/admin/rackraj/tools/update/"><span>Обновить</span></a></li><li class="menu-item"><a href="/admin/rackraj/tools/export/"><span>Экспорт (CSV-формат)</span></a></li><li class="menu-item"><a href="#"><span>Устройства контроля</span><span class="icon"></span></a><ul><li class="menu-item"><a href="/admin/autodiscover/managemonappips/"><span>Управлять контролируемыми IP-адресами</span></a></li></ul></li></ul></li>
+
+            <li class="menu-item disabled bookmark"><a href="#"><span>Закладки</span></a></li>
+
+            <li class="menu-item"><a href="#"><span>Справка</span><span class="icon"></span></a><ul><li><a href="http://www.device42.com/new_ticket/" target="_blank">Открыть заявку в службу поддержки</a></li><li><a href="/admin/rackraj/tools/helpsearch/" target="_blank">Поиск документации/Кб</a></li><li><a href="http://docs.device42.com/" target="_blank">Перейти к онлайн-документации</a></li><li><a href="http://www.device42.com/new_feature/" target="_blank">Отправить заявку на функцию</a></li><li><a href="http://www.device42.com/new_feedback/" target="_blank">Оставить отзыв</a></li></ul></li>
+
+        </ul>
+
+
+
+
+
+    </div>
+    <!-- END Header -->
+
+    <div class="breadcrumbs">
+        <a href='/admin/rackraj/tools/dashboard/'>Главная</a>
+
+        &rsaquo; Устройства
+    </div>
+
+
+
+    <!-- Content -->
+    <div id="content" class="flex">
+
+        <h1>Выберите Устройство для просмотра</h1>
+
+        <div id="content-main">
+
+
+
+
+            <div class="module filtered" id="changelist">
+                <div class="sticky_marker"></div>
+
+
+                <div id="toolbar"><form id="changelist-search" action="" method="get">
+                    <div><!-- DIV needed for valid HTML -->
+                        <label for="searchbar"><img src="../../../static/admin/img/icon_searchbox.png" alt="Search" /></label>
+                        <input type="text" size="40" name="q" value="" id="searchbar" />
+                        <input type="submit" value="Поиск" />
+
+
+                    </div>
+                </form></div>
+                <script type="text/javascript">document.getElementById("searchbar").focus();</script>
+
+
+
+
+
+
+
+                <div id="changelist-filter">
+                    <h2>Фильтр</h2>
+
+                    <h3>Тип</h3>
+                    <form>
+                        <select  style="width:100%" id="filter-Тип"  onchange="window.location=this.value">
+
+                            <option selected="selected" value="?">Все</option>
+
+                            <option value="?type__id__exact=1">unknown</option>
+
+                            <option value="?type__id__exact=2">physical</option>
+
+                            <option value="?type__id__exact=3">virtual</option>
+
+                            <option value="?type__id__exact=4">blade</option>
+
+                            <option value="?type__id__exact=5">cluster</option>
+
+                            <option value="?type__id__exact=6">other</option>
+
+                        </select>
+                    </form>
+
+                    <h3>Модель оборудования</h3>
+                    <form>
+                        <select  style="width:100%" id="filter-Модель оборудования"  onchange="window.location=this.value">
+
+                            <option selected="selected" value="?">Все</option>
+
+                            <option value="?hardware__id__exact=19">2924XL, Cisco Systems, Inc.(123)</option>
+
+                            <option value="?hardware__id__exact=20">2924XLv, Cisco Systems, Inc.</option>
+
+                            <option value="?hardware__id__exact=21">3750, Cisco Systems, Inc.(123)</option>
+
+                            <option value="?hardware__id__exact=22">6509E, Cisco Systems, Inc.(123)</option>
+
+                            <option value="?hardware__id__exact=23">6548TX</option>
+
+                            <option value="?hardware__id__exact=4">8205-E6D, IBM</option>
+
+                            <option value="?hardware__id__exact=3">9117-MMD, IBM</option>
+
+                            <option value="?hardware__id__exact=24">Acme 1 server, Acme</option>
+
+                            <option value="?hardware__id__exact=9">B440-BASE-M2, Cisco Systems Inc</option>
+
+                            <option value="?hardware__id__exact=26">BladeSystem c7000 Enclosure G2, HP</option>
+
+                            <option value="?hardware__id__exact=27">Cisco 2851, Cisco Systems, Inc.(Cisco 2851)</option>
+
+                            <option value="?hardware__id__exact=28">Cisco 3560, Cisco Systems, Inc.</option>
+
+                            <option value="?hardware__id__exact=29">Cisco ASA 5525, Cisco Systems, Inc.(ASA 5525)</option>
+
+                            <option value="?hardware__id__exact=30">Cisco UCS 5108, Cisco Systems, Inc.</option>
+
+                            <option value="?hardware__id__exact=31">Cisco UCS B200 M1, Cisco Systems, Inc.</option>
+
+                            <option value="?hardware__id__exact=32">Cisco UCS B200 M2, Cisco Systems, Inc.</option>
+
+                            <option value="?hardware__id__exact=33">Cisco UCS B200 M3, Cisco Systems, Inc.</option>
+
+                            <option value="?hardware__id__exact=34">Cisco UCS B250 M1, Cisco Systems, Inc.</option>
+
+                            <option value="?hardware__id__exact=35">Cisco UCS B440 M1, Cisco Systems, Inc.</option>
+
+                            <option value="?hardware__id__exact=36">Cisco UCS Chassis, Cisco Systems, Inc.</option>
+
+                            <option value="?hardware__id__exact=1">df</option>
+
+                            <option value="?hardware__id__exact=55">DS2246, NetApp</option>
+
+                            <option value="?hardware__id__exact=56">FAS2220, NetApp</option>
+
+                            <option value="?hardware__id__exact=37">HP C7000, Hewlett Packard(HPC700e)</option>
+
+                            <option value="?hardware__id__exact=38">HP LaserJet CP5225dn, Hewlett Packard(CE712A)</option>
+
+                            <option value="?hardware__id__exact=39">HP LaserJet CP5525n, Hewlett Packard(CE707A)</option>
+
+                            <option value="?hardware__id__exact=40">Juniper-IDP200, Juniper Networks</option>
+
+                            <option value="?hardware__id__exact=41">Lenovo ThinkPad X220, LENOVO(42872W5)</option>
+
+                            <option value="?hardware__id__exact=42">NE40-X8, Huawei</option>
+
+                            <option value="?hardware__id__exact=43">OptiX OSN 6800, Huawei</option>
+
+                            <option value="?hardware__id__exact=18">PowerEdge 2900, Dell Inc.</option>
+
+                            <option value="?hardware__id__exact=14">PowerEdge 2950, Dell Inc.</option>
+
+                            <option value="?hardware__id__exact=10">PowerEdge M600, Dell Inc.</option>
+
+                            <option value="?hardware__id__exact=6">PowerEdge M610, Dell Inc.</option>
+
+                            <option value="?hardware__id__exact=15">PowerEdge M910, Dell Inc.</option>
+
+                            <option value="?hardware__id__exact=44">PowerEdge R610, Dell Inc.</option>
+
+                            <option value="?hardware__id__exact=8">PowerEdge R710, Dell Inc.</option>
+
+                            <option value="?hardware__id__exact=45">ProLiant BL280c G6, Hewlett Packard</option>
+
+                            <option value="?hardware__id__exact=46">ProLiant BL2x220c G6, Hewlett Packard</option>
+
+                            <option value="?hardware__id__exact=47">ProLiant BL465c Gen8, HP</option>
+
+                            <option value="?hardware__id__exact=48">ProLiant DL360 G7, Hewlett Packard</option>
+
+                            <option value="?hardware__id__exact=49">ProLiant DL380 G7, Hewlett Packard</option>
+
+                            <option value="?hardware__id__exact=50">Proliant DL560G8, Hewlett Packard(DL580)</option>
+
+                            <option value="?hardware__id__exact=51">ProLiant DL785 G6, Hewlett Packard</option>
+
+                            <option value="?hardware__id__exact=52">RJ45</option>
+
+                            <option value="?hardware__id__exact=53">S9303, Huawei</option>
+
+                            <option value="?hardware__id__exact=2">switch</option>
+
+                            <option value="?hardware__id__exact=54">System x3250, IBM</option>
+
+                            <option value="?hardware__id__exact=17">TCS-C220-5RP-K9, Cisco Systems Inc</option>
+
+                            <option value="?hardware__id__exact=5">UCSB-B200-M3, Cisco Systems Inc</option>
+
+                            <option value="?hardware__id__exact=13">UCSB-B200-M4, Cisco Systems Inc</option>
+
+                            <option value="?hardware__id__exact=11">UCSC-C240-M3S, Cisco Systems Inc</option>
+
+                            <option value="?hardware__id__exact=7">UCSC-C240-M4S, Cisco Systems Inc</option>
+
+                            <option value="?hardware__id__exact=12">UCSC-C240-M4S2, Cisco Systems Inc</option>
+
+                            <option value="?hardware__id__exact=16">UCSC-C240-M4SX, Cisco Systems Inc</option>
+
+                        </select>
+                    </form>
+
+                    <h3>Клиент</h3>
+                    <form>
+                        <select  style="width:100%" id="filter-Клиент"  onchange="window.location=this.value">
+
+                            <option selected="selected" value="?">Все</option>
+
+                            <option value="?dev_customer=-1">(Никакой)</option>
+
+                        </select>
+                    </form>
+
+                    <h3>Стойка</h3>
+                    <form>
+                        <select  style="width:100%" id="filter-Стойка"  onchange="window.location=this.value">
+
+                            <option selected="selected" value="?">Все</option>
+
+                            <option value="?dev_rack=-1">(Никакой)</option>
+
+                        </select>
+                    </form>
+
+                    <h3>Помещение</h3>
+                    <form>
+                        <select  style="width:100%" id="filter-Помещение"  onchange="window.location=this.value">
+
+                            <option selected="selected" value="?">Все</option>
+
+                            <option value="?dev_room=-1">(Никакой)</option>
+
+                        </select>
+                    </form>
+
+                    <h3>Здание</h3>
+                    <form>
+                        <select  style="width:100%" id="filter-Здание"  onchange="window.location=this.value">
+
+                            <option selected="selected" value="?">Все</option>
+
+                            <option value="?dev_bldg=-1">(Никакой)</option>
+
+                        </select>
+                    </form>
+
+                    <h3>ОС</h3>
+                    <form>
+                        <select  style="width:100%" id="filter-ОС"  onchange="window.location=this.value">
+
+                            <option selected="selected" value="?">Все</option>
+
+                            <option value="?device_os__os__id__exact=1">Amazon Linux AMI</option>
+
+                            <option value="?device_os__os__id__exact=15">Cisco IOS</option>
+
+                            <option value="?device_os__os__id__exact=3">Enterprise Linux Enterprise Linux Server release 5.4 (Cartha</option>
+
+                            <option value="?device_os__os__id__exact=18">ESXi 5.5</option>
+
+                            <option value="?device_os__os__id__exact=17">ios</option>
+
+                            <option value="?device_os__os__id__exact=19">Microsoft Windows 7 Professional</option>
+
+                            <option value="?device_os__os__id__exact=10">Microsoft Windows Server 2003 Enterprise Edition</option>
+
+                            <option value="?device_os__os__id__exact=12">Microsoft Windows Server 2003 Enterprise x64 Edition</option>
+
+                            <option value="?device_os__os__id__exact=9">Microsoft Windows Server 2003 Standard Edition</option>
+
+                            <option value="?device_os__os__id__exact=11">Microsoft Windows Server 2003 Standard x64 Edition</option>
+
+                            <option value="?device_os__os__id__exact=13">Microsoft Windows Server 2008 Enterprise</option>
+
+                            <option value="?device_os__os__id__exact=8">Microsoft Windows Server 2008 R2 Enterprise</option>
+
+                            <option value="?device_os__os__id__exact=5">Microsoft Windows Server 2008 R2 Standard</option>
+
+                            <option value="?device_os__os__id__exact=7">Microsoft Windows Server 2008 Standard</option>
+
+                            <option value="?device_os__os__id__exact=14">Microsoft Windows Server 2008 STD</option>
+
+                            <option value="?device_os__os__id__exact=6">Microsoft Windows Server 2012 R2 Standard</option>
+
+                            <option value="?device_os__os__id__exact=2">Red Hat Enterprise Linux Server</option>
+
+                            <option value="?device_os__os__id__exact=4">Ubuntu</option>
+
+                            <option value="?device_os__os__id__exact=16">VMware ESXi</option>
+
+                        </select>
+                    </form>
+
+                    <h3>Уровень обслуживания</h3>
+                    <form>
+                        <select  style="width:100%" id="filter-Уровень обслуживания"  onchange="window.location=this.value">
+
+                            <option selected="selected" value="?">Все</option>
+
+                            <option value="?service_level__id__exact=3">Development</option>
+
+                            <option value="?service_level__id__exact=1">Production</option>
+
+                            <option value="?service_level__id__exact=2">QA</option>
+
+                        </select>
+                    </form>
+
+                    <h3>В эксплуатации</h3>
+                    <form>
+                        <select  style="width:100%" id="filter-В эксплуатации"  onchange="window.location=this.value">
+
+                            <option selected="selected" value="?">Все</option>
+
+                            <option value="?in_service__exact=1">Да</option>
+
+                            <option value="?in_service__exact=0">Нет</option>
+
+                        </select>
+                    </form>
+
+                    <h3>Object Category</h3>
+                    <form>
+                        <select  style="width:100%" id="filter-Object Category"  onchange="window.location=this.value">
+
+                            <option selected="selected" value="?">Все</option>
+
+                            <option value="?Device_category=-1">Никакой</option>
+
+                        </select>
+                    </form>
+
+                    <h3>Group</h3>
+                    <form>
+                        <select  style="width:100%" id="filter-Group"  onchange="window.location=this.value">
+
+                            <option selected="selected" value="?">Все</option>
+
+                            <option value="?group_name=1.999">Никакой</option>
+
+                            <option value="?group_name=1">System Generated Read Only</option>
+
+                        </select>
+                    </form>
+                    <h3>Сетевое устройство</h3>
+                    <form>
+                        <select  style="width:100%" id="filter-Сетевое устройство"  onchange="window.location=this.value">
+                            <option selected="selected" value="?">Все</option>
+                            <option value="?switch__exact=1">Да</option>
+                            <option value="?switch__exact=0">Нет</option>
+                        </select>
+                    </form>
+                    <h3>Блейд-шасси</h3>
+                    <form>
+                        <select  style="width:100%" id="filter-Блейд-шасси"  onchange="window.location=this.value">
+                            <option selected="selected" value="?">Все</option>
+                            <option value="?blade_chassis__exact=1">Да</option>
+                            <option value="?blade_chassis__exact=0">Нет</option>
+                        </select>
+                    </form>
+                    <h3>Виртуальный хост</h3>
+                    <form>
+                        <select  style="width:100%" id="filter-Виртуальный хост"  onchange="window.location=this.value">
+                            <option selected="selected" value="?">Все</option>
+                            <option value="?virtual_host__exact=1">Да</option>
+                            <option value="?virtual_host__exact=0">Нет</option>
+                        </select>
+                    </form>
+                    <h3>Поставщик</h3>
+                    <form>
+                        <select  style="width:100%" id="filter-Поставщик"  onchange="window.location=this.value">
+
+                            <option selected="selected" value="?">Все</option>
+
+                            <option value="?hardware__manufacturer__id__exact=486">.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=609">1.0.8.2</option>
+
+                            <option value="?hardware__manufacturer__id__exact=775">1E</option>
+
+                            <option value="?hardware__manufacturer__id__exact=798">2Ring s.r.o</option>
+
+                            <option value="?hardware__manufacturer__id__exact=434">3C Software</option>
+
+                            <option value="?hardware__manufacturer__id__exact=211">3D Systems, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=670">ABBYY</option>
+
+                            <option value="?hardware__manufacturer__id__exact=407">Acceleratio Ltd.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=334">Accellion, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=398">AccessData</option>
+
+                            <option value="?hardware__manufacturer__id__exact=180">AccuRev</option>
+
+                            <option value="?hardware__manufacturer__id__exact=808">Acer Incoporated</option>
+
+                            <option value="?hardware__manufacturer__id__exact=523">ACL Services Ltd</option>
+
+                            <option value="?hardware__manufacturer__id__exact=244">ACL Services Ltd.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=809">Acme</option>
+
+                            <option value="?hardware__manufacturer__id__exact=129">Acrolinx</option>
+
+                            <option value="?hardware__manufacturer__id__exact=127">Acrolinx GmbH</option>
+
+                            <option value="?hardware__manufacturer__id__exact=721">Acro Software Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=536">Actian Corporation</option>
+
+                            <option value="?hardware__manufacturer__id__exact=610">ActiGraph</option>
+
+                            <option value="?hardware__manufacturer__id__exact=612">ActiGraph, LLC</option>
+
+                            <option value="?hardware__manufacturer__id__exact=54">ActiveState</option>
+
+                            <option value="?hardware__manufacturer__id__exact=123">ActiveState Software Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=756">Actuate Corporation</option>
+
+                            <option value="?hardware__manufacturer__id__exact=155">Acuo Technologies</option>
+
+                            <option value="?hardware__manufacturer__id__exact=395">Adlib</option>
+
+                            <option value="?hardware__manufacturer__id__exact=466">Adlib Software</option>
+
+                            <option value="?hardware__manufacturer__id__exact=389">Adobe</option>
+
+                            <option value="?hardware__manufacturer__id__exact=103">Adobe Systems</option>
+
+                            <option value="?hardware__manufacturer__id__exact=140">Adobe Systems Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=152">Adobe Systems, Inc</option>
+
+                            <option value="?hardware__manufacturer__id__exact=138">Adobe Systems, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=13">Adobe Systems Incorporated</option>
+
+                            <option value="?hardware__manufacturer__id__exact=295">Advanced Micro Controls, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=713">AdvancedPCTweaker.com, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=356">Advanced Systems Concepts, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=677">Advantech</option>
+
+                            <option value="?hardware__manufacturer__id__exact=206">Agile Advantage</option>
+
+                            <option value="?hardware__manufacturer__id__exact=261">Agilent Technologies</option>
+
+                            <option value="?hardware__manufacturer__id__exact=480">Agile Risk Management LLC</option>
+
+                            <option value="?hardware__manufacturer__id__exact=742">Altium Limited</option>
+
+                            <option value="?hardware__manufacturer__id__exact=705">Altova</option>
+
+                            <option value="?hardware__manufacturer__id__exact=192">Amazon</option>
+
+                            <option value="?hardware__manufacturer__id__exact=252">Amazon Web Services Developer Relations</option>
+
+                            <option value="?hardware__manufacturer__id__exact=116">AMC Technology, LLC</option>
+
+                            <option value="?hardware__manufacturer__id__exact=524">American Dynamics</option>
+
+                            <option value="?hardware__manufacturer__id__exact=173">American Power Conversion</option>
+
+                            <option value="?hardware__manufacturer__id__exact=736">Angry IP Scanner</option>
+
+                            <option value="?hardware__manufacturer__id__exact=698">AnjLab.com</option>
+
+                            <option value="?hardware__manufacturer__id__exact=431">Antenna House</option>
+
+                            <option value="?hardware__manufacturer__id__exact=34">Apache Software Foundation</option>
+
+                            <option value="?hardware__manufacturer__id__exact=810">APC Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=248">APN, LLC</option>
+
+                            <option value="?hardware__manufacturer__id__exact=785">App-DNA</option>
+
+                            <option value="?hardware__manufacturer__id__exact=751">AppDynamics</option>
+
+                            <option value="?hardware__manufacturer__id__exact=427">Apple</option>
+
+                            <option value="?hardware__manufacturer__id__exact=324">Apple Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=765">Applied Materials</option>
+
+                            <option value="?hardware__manufacturer__id__exact=461">Apricity Software LLC</option>
+
+                            <option value="?hardware__manufacturer__id__exact=719">APTARE, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=694">AquaFold</option>
+
+                            <option value="?hardware__manufacturer__id__exact=684">ARM Ltd</option>
+
+                            <option value="?hardware__manufacturer__id__exact=136">Artcode LLC</option>
+
+                            <option value="?hardware__manufacturer__id__exact=338">Artifex Software Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=683">Arxan Technologies, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=748">ASI DataMyte, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=660">Assertus</option>
+
+                            <option value="?hardware__manufacturer__id__exact=661">ASSERTUS, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=659">ASSERTUS INC</option>
+
+                            <option value="?hardware__manufacturer__id__exact=811">ASUSTeK Computer Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=637">Atanas Neshkov 2009</option>
+
+                            <option value="?hardware__manufacturer__id__exact=393">Atlassian</option>
+
+                            <option value="?hardware__manufacturer__id__exact=481">Attachmate</option>
+
+                            <option value="?hardware__manufacturer__id__exact=474">AT&amp;T Research Labs.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=106">Attunity</option>
+
+                            <option value="?hardware__manufacturer__id__exact=639">Attunity Ltd.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=360">AudioCodes Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=444">Autodesk</option>
+
+                            <option value="?hardware__manufacturer__id__exact=68">AutoIt Team</option>
+
+                            <option value="?hardware__manufacturer__id__exact=644">Automated Logic</option>
+
+                            <option value="?hardware__manufacturer__id__exact=259">AutomatedQA Corp.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=400">Automation Anywhere, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=493">Automation Control Products</option>
+
+                            <option value="?hardware__manufacturer__id__exact=503">Autonomy</option>
+
+                            <option value="?hardware__manufacturer__id__exact=598">Autoscribe ltd.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=478">AVAGO</option>
+
+                            <option value="?hardware__manufacturer__id__exact=415">Avaya UK</option>
+
+                            <option value="?hardware__manufacturer__id__exact=188">AvePoint,Inc</option>
+
+                            <option value="?hardware__manufacturer__id__exact=189">AvePoint, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=768">AVG Technologies</option>
+
+                            <option value="?hardware__manufacturer__id__exact=243">AVIcode Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=783">Axceler</option>
+
+                            <option value="?hardware__manufacturer__id__exact=455">Axeda Corporation</option>
+
+                            <option value="?hardware__manufacturer__id__exact=744">Azalea Software</option>
+
+                            <option value="?hardware__manufacturer__id__exact=447">Azalea Software, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=113">BalancePoint</option>
+
+                            <option value="?hardware__manufacturer__id__exact=275">BasWare Corporation</option>
+
+                            <option value="?hardware__manufacturer__id__exact=725">Bazis</option>
+
+                            <option value="?hardware__manufacturer__id__exact=656">Best Access Systems</option>
+
+                            <option value="?hardware__manufacturer__id__exact=812">BIOSTAR Group</option>
+
+                            <option value="?hardware__manufacturer__id__exact=242">Bit9, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=171">Bitnami</option>
+
+                            <option value="?hardware__manufacturer__id__exact=813">Black Box Corp.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=213">BlackLine Systems</option>
+
+                            <option value="?hardware__manufacturer__id__exact=685">Blue Coat Systems</option>
+
+                            <option value="?hardware__manufacturer__id__exact=214">Blue Coat Systems, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=559">Box</option>
+
+                            <option value="?hardware__manufacturer__id__exact=268">Box Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=613">Box, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=197">Brio</option>
+
+                            <option value="?hardware__manufacturer__id__exact=5">Broadcom Corporation</option>
+
+                            <option value="?hardware__manufacturer__id__exact=814">Bull SAS</option>
+
+                            <option value="?hardware__manufacturer__id__exact=97">Business Objects</option>
+
+                            <option value="?hardware__manufacturer__id__exact=735">BWMONITOR.COM</option>
+
+                            <option value="?hardware__manufacturer__id__exact=710">B&amp;W Software GmbH - Solutions for efficient product design</option>
+
+                            <option value="?hardware__manufacturer__id__exact=301">CA</option>
+
+                            <option value="?hardware__manufacturer__id__exact=122">CACE Technologies</option>
+
+                            <option value="?hardware__manufacturer__id__exact=33">Cacti</option>
+
+                            <option value="?hardware__manufacturer__id__exact=139">CA, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=551">CambridgeSoft Corporation</option>
+
+                            <option value="?hardware__manufacturer__id__exact=327">Captaris, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=329">CaptureService</option>
+
+                            <option value="?hardware__manufacturer__id__exact=282">CardioVascular</option>
+
+                            <option value="?hardware__manufacturer__id__exact=230">Card Scanning Solutions</option>
+
+                            <option value="?hardware__manufacturer__id__exact=679">CastNET</option>
+
+                            <option value="?hardware__manufacturer__id__exact=247">CA Technologies</option>
+
+                            <option value="?hardware__manufacturer__id__exact=279">CA, Wily Technology</option>
+
+                            <option value="?hardware__manufacturer__id__exact=709">CDW</option>
+
+                            <option value="?hardware__manufacturer__id__exact=691">CGS</option>
+
+                            <option value="?hardware__manufacturer__id__exact=624">Charles Joy (charles.joy@microsoft.com)</option>
+
+                            <option value="?hardware__manufacturer__id__exact=577">Check Point Software Technologies Ltd.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=700">&quot;Chef Software, Inc. &lt;maintainers@chef.io&gt;&quot;</option>
+
+                            <option value="?hardware__manufacturer__id__exact=651">Cimetrics Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=743">Cisco</option>
+
+                            <option value="?hardware__manufacturer__id__exact=22">Cisco Systems Inc</option>
+
+                            <option value="?hardware__manufacturer__id__exact=198">Cisco Systems Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=62">Cisco Systems, Inc</option>
+
+                            <option value="?hardware__manufacturer__id__exact=542">Cisco Systems, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=61">Cisco WebEx LLC</option>
+
+                            <option value="?hardware__manufacturer__id__exact=553">Citeknet</option>
+
+                            <option value="?hardware__manufacturer__id__exact=283">Citrix</option>
+
+                            <option value="?hardware__manufacturer__id__exact=647">Citrix Systems</option>
+
+                            <option value="?hardware__manufacturer__id__exact=19">Citrix Systems Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=18">Citrix Systems, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=788">Citrix Systems,Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=154">Claron Technology</option>
+
+                            <option value="?hardware__manufacturer__id__exact=158">Claron Technology Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=629">Cloudera</option>
+
+                            <option value="?hardware__manufacturer__id__exact=306">Cognex Corp</option>
+
+                            <option value="?hardware__manufacturer__id__exact=500">Cognition</option>
+
+                            <option value="?hardware__manufacturer__id__exact=501">Cognition Corporation</option>
+
+                            <option value="?hardware__manufacturer__id__exact=422">Colbert Infrared</option>
+
+                            <option value="?hardware__manufacturer__id__exact=815">Colfax International</option>
+
+                            <option value="?hardware__manufacturer__id__exact=708">Colin Harrison</option>
+
+                            <option value="?hardware__manufacturer__id__exact=727">CollabNet</option>
+
+                            <option value="?hardware__manufacturer__id__exact=590">Comfort Software Group</option>
+
+                            <option value="?hardware__manufacturer__id__exact=730">ComponentSoftware</option>
+
+                            <option value="?hardware__manufacturer__id__exact=412">Computer Associates International, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=732">Compuware Corporation</option>
+
+                            <option value="?hardware__manufacturer__id__exact=816">Cooper B Line</option>
+
+                            <option value="?hardware__manufacturer__id__exact=135">Corepoint Health</option>
+
+                            <option value="?hardware__manufacturer__id__exact=781">Coretech A/S</option>
+
+                            <option value="?hardware__manufacturer__id__exact=111">Core Technologies Consulting, LLC</option>
+
+                            <option value="?hardware__manufacturer__id__exact=490">Corptax, Inc</option>
+
+                            <option value="?hardware__manufacturer__id__exact=491">Corptax, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=473">Couchbase, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=55">Courion Corporation</option>
+
+                            <option value="?hardware__manufacturer__id__exact=620">Crystal Decisions, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=258">CTC Analytics AG</option>
+
+                            <option value="?hardware__manufacturer__id__exact=201">CutePDF.com</option>
+
+                            <option value="?hardware__manufacturer__id__exact=99">CvsGui</option>
+
+                            <option value="?hardware__manufacturer__id__exact=110">CyberArk</option>
+
+                            <option value="?hardware__manufacturer__id__exact=701">Cyber-Ark Software Ltd.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=8">Cybereason</option>
+
+                            <option value="?hardware__manufacturer__id__exact=40">Cybertrol Engineering</option>
+
+                            <option value="?hardware__manufacturer__id__exact=464">DameWare Development</option>
+
+                            <option value="?hardware__manufacturer__id__exact=117">Dassault Systemes</option>
+
+                            <option value="?hardware__manufacturer__id__exact=119">Dassault Systemes Enovia Corp.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=118">Dassault Systemes SolidWorks Corp</option>
+
+                            <option value="?hardware__manufacturer__id__exact=517">Dassault Systèmes SolidWorks Corp.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=23">Data Domain</option>
+
+                            <option value="?hardware__manufacturer__id__exact=796">DataWizard.com</option>
+
+                            <option value="?hardware__manufacturer__id__exact=436">Dax Studio</option>
+
+                            <option value="?hardware__manufacturer__id__exact=271">DbVis Software AB</option>
+
+                            <option value="?hardware__manufacturer__id__exact=547">Dean Evans and Associates</option>
+
+                            <option value="?hardware__manufacturer__id__exact=546">Dean Evans and Associates, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=545">Dean Evans &amp; Associates, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=489">Decision Modeling, Inc. (DMI)</option>
+
+                            <option value="?hardware__manufacturer__id__exact=460">Decisions</option>
+
+                            <option value="?hardware__manufacturer__id__exact=101">Default Company Name</option>
+
+                            <option value="?hardware__manufacturer__id__exact=47">Dell</option>
+
+                            <option value="?hardware__manufacturer__id__exact=45">Dell Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=615">Dell, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=771">Dell Software</option>
+
+                            <option value="?hardware__manufacturer__id__exact=773">Dell Software Inc</option>
+
+                            <option value="?hardware__manufacturer__id__exact=729">Dennis Bareis</option>
+
+                            <option value="?hardware__manufacturer__id__exact=239">Devart</option>
+
+                            <option value="?hardware__manufacturer__id__exact=556">Devart software development</option>
+
+                            <option value="?hardware__manufacturer__id__exact=774">Device42</option>
+
+                            <option value="?hardware__manufacturer__id__exact=817">device42 llc</option>
+
+                            <option value="?hardware__manufacturer__id__exact=807">DHandyInc</option>
+
+                            <option value="?hardware__manufacturer__id__exact=632">Diem Technologies</option>
+
+                            <option value="?hardware__manufacturer__id__exact=595">Digitech Systems, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=668">Dimitri van Heesch</option>
+
+                            <option value="?hardware__manufacturer__id__exact=555">Discover Technologies</option>
+
+                            <option value="?hardware__manufacturer__id__exact=352">Documentum, a division of EMC</option>
+
+                            <option value="?hardware__manufacturer__id__exact=262">Documentum, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=392">Dominique Ottello aka Otomatic</option>
+
+                            <option value="?hardware__manufacturer__id__exact=638">Driver Support</option>
+
+                            <option value="?hardware__manufacturer__id__exact=159">DT Soft Ltd</option>
+
+                            <option value="?hardware__manufacturer__id__exact=611">Dynastream Innovations, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=36">Dynatrace</option>
+
+                            <option value="?hardware__manufacturer__id__exact=133">EasyTerritory.com</option>
+
+                            <option value="?hardware__manufacturer__id__exact=426">EC Software</option>
+
+                            <option value="?hardware__manufacturer__id__exact=568">EDO</option>
+
+                            <option value="?hardware__manufacturer__id__exact=220">Elaborate Bytes</option>
+
+                            <option value="?hardware__manufacturer__id__exact=169">Elfring Fonts, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=100">ElmSoft</option>
+
+                            <option value="?hardware__manufacturer__id__exact=513">Elo TouchSystems</option>
+
+                            <option value="?hardware__manufacturer__id__exact=251">EMC</option>
+
+                            <option value="?hardware__manufacturer__id__exact=786">EMC Avamar Irvine,CA,USA 949-743-5100</option>
+
+                            <option value="?hardware__manufacturer__id__exact=755">EMC Corp.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=24">EMC Corporation</option>
+
+                            <option value="?hardware__manufacturer__id__exact=654">EMS Software LLC</option>
+
+                            <option value="?hardware__manufacturer__id__exact=655">EMS Software LLC.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=46">Emulex</option>
+
+                            <option value="?hardware__manufacturer__id__exact=607">Emulex Corporation</option>
+
+                            <option value="?hardware__manufacturer__id__exact=288">Endress+Hauser, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=652">EPM Live</option>
+
+                            <option value="?hardware__manufacturer__id__exact=692">EPSON</option>
+
+                            <option value="?hardware__manufacturer__id__exact=483">Eric Lawrence</option>
+
+                            <option value="?hardware__manufacturer__id__exact=380">ES-Computing</option>
+
+                            <option value="?hardware__manufacturer__id__exact=346">Eurotherm Limited</option>
+
+                            <option value="?hardware__manufacturer__id__exact=726">Eurotherm Ltd</option>
+
+                            <option value="?hardware__manufacturer__id__exact=176">eurovoice limited</option>
+
+                            <option value="?hardware__manufacturer__id__exact=589">Everest Software International</option>
+
+                            <option value="?hardware__manufacturer__id__exact=332">eviware</option>
+
+                            <option value="?hardware__manufacturer__id__exact=114">Exact Holding N.V.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=450">Exact MAX Exact Software</option>
+
+                            <option value="?hardware__manufacturer__id__exact=115">Exact Software</option>
+
+                            <option value="?hardware__manufacturer__id__exact=760">Expandable Software, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=539">Experitest</option>
+
+                            <option value="?hardware__manufacturer__id__exact=733">Fanfare</option>
+
+                            <option value="?hardware__manufacturer__id__exact=128">FileMaker, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=63">FileZilla Project</option>
+
+                            <option value="?hardware__manufacturer__id__exact=739">Firebird Project</option>
+
+                            <option value="?hardware__manufacturer__id__exact=740">FirebirdSQL</option>
+
+                            <option value="?hardware__manufacturer__id__exact=404">FireDaemon Technologies Limited</option>
+
+                            <option value="?hardware__manufacturer__id__exact=52">FireEye</option>
+
+                            <option value="?hardware__manufacturer__id__exact=818">Five9 Network Systems</option>
+
+                            <option value="?hardware__manufacturer__id__exact=777">Flexera Software</option>
+
+                            <option value="?hardware__manufacturer__id__exact=699">Flexera Software, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=350">Flexera Software LLC</option>
+
+                            <option value="?hardware__manufacturer__id__exact=512">Flexera Software LLC.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=794">FluentPro Software</option>
+
+                            <option value="?hardware__manufacturer__id__exact=381">fme AG</option>
+
+                            <option value="?hardware__manufacturer__id__exact=650">Fog Creek Software, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=778">Form Designer</option>
+
+                            <option value="?hardware__manufacturer__id__exact=554">Foxit Software</option>
+
+                            <option value="?hardware__manufacturer__id__exact=497">Frank Heindörfer, Philip Chinery</option>
+
+                            <option value="?hardware__manufacturer__id__exact=421">FUJIFILM Medical Systems U.S.A., Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=819">Fujitsu</option>
+
+                            <option value="?hardware__manufacturer__id__exact=305">GE Energy</option>
+
+                            <option value="?hardware__manufacturer__id__exact=308">GE Fanuc</option>
+
+                            <option value="?hardware__manufacturer__id__exact=291">GE Intelligent Platforms</option>
+
+                            <option value="?hardware__manufacturer__id__exact=304">GE Intelligent Platforms Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=290">GE Intelligent Platforms, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=313">GemBox Software</option>
+
+                            <option value="?hardware__manufacturer__id__exact=353">Genuitec, LLC</option>
+
+                            <option value="?hardware__manufacturer__id__exact=445">Geometric Ltd</option>
+
+                            <option value="?hardware__manufacturer__id__exact=374">getcomposer.org</option>
+
+                            <option value="?hardware__manufacturer__id__exact=495">Giorgio Tani</option>
+
+                            <option value="?hardware__manufacturer__id__exact=663">GlobalSCAPE</option>
+
+                            <option value="?hardware__manufacturer__id__exact=567">GlobalSCAPE Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=69">GnuWin32</option>
+
+                            <option value="?hardware__manufacturer__id__exact=146">Google</option>
+
+                            <option value="?hardware__manufacturer__id__exact=12">Google Inc</option>
+
+                            <option value="?hardware__manufacturer__id__exact=17">Google Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=14">Google, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=636">GoPivotal, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=270">Grand Avenue Software, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=532">GrayMatter Software Corporation</option>
+
+                            <option value="?hardware__manufacturer__id__exact=776">Grid-Tools</option>
+
+                            <option value="?hardware__manufacturer__id__exact=351">Grig Software</option>
+
+                            <option value="?hardware__manufacturer__id__exact=605">Guidance Software, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=583">Haansoft</option>
+
+                            <option value="?hardware__manufacturer__id__exact=758">Haley Systems, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=293">Hardy Instruments, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=126">Helios</option>
+
+                            <option value="?hardware__manufacturer__id__exact=820">Hewlett Packard</option>
+
+                            <option value="?hardware__manufacturer__id__exact=56">Hewlett-Packard</option>
+
+                            <option value="?hardware__manufacturer__id__exact=218">Hewlett-Packard Company</option>
+
+                            <option value="?hardware__manufacturer__id__exact=507">Hewlett Packard Development Company, L.P.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=60">Hewlett-Packard Development Company, L.P.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=510">Hewlett Packard Development Group, L.P.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=529">Hewlett Packard Enterprise</option>
+
+                            <option value="?hardware__manufacturer__id__exact=232">HID Global Corporation</option>
+
+                            <option value="?hardware__manufacturer__id__exact=821">Hitachi, Ltd.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=627">Hoffman Enclosures</option>
+
+                            <option value="?hardware__manufacturer__id__exact=364">Honeywell</option>
+
+                            <option value="?hardware__manufacturer__id__exact=365">Honeywell Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=366">Honeywell International Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=31">Hoo Technologies</option>
+
+                            <option value="?hardware__manufacturer__id__exact=621">HotDocs Corporation</option>
+
+                            <option value="?hardware__manufacturer__id__exact=219">HP</option>
+
+                            <option value="?hardware__manufacturer__id__exact=241">HP Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=475">https://golang.org</option>
+
+                            <option value="?hardware__manufacturer__id__exact=822">Huawei</option>
+
+                            <option value="?hardware__manufacturer__id__exact=823">Huawei Technologies Co., Ltd</option>
+
+                            <option value="?hardware__manufacturer__id__exact=761">Hyperion</option>
+
+                            <option value="?hardware__manufacturer__id__exact=572">iAnywhere, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=790">iAnywhere Solutions</option>
+
+                            <option value="?hardware__manufacturer__id__exact=76">iAnywhere Solutions, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=657">IAR Systems</option>
+
+                            <option value="?hardware__manufacturer__id__exact=1">IBM</option>
+
+                            <option value="?hardware__manufacturer__id__exact=453">IBM Corp</option>
+
+                            <option value="?hardware__manufacturer__id__exact=410">IBM Corp.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=223">IBM Corporation</option>
+
+                            <option value="?hardware__manufacturer__id__exact=720">IBM-XIV</option>
+
+                            <option value="?hardware__manufacturer__id__exact=600">ICS</option>
+
+                            <option value="?hardware__manufacturer__id__exact=658">Idera</option>
+
+                            <option value="?hardware__manufacturer__id__exact=738">IDM Computer Solutions</option>
+
+                            <option value="?hardware__manufacturer__id__exact=747">IDS</option>
+
+                            <option value="?hardware__manufacturer__id__exact=749">IDS Scheer AG</option>
+
+                            <option value="?hardware__manufacturer__id__exact=488">IEWatch Software LLC</option>
+
+                            <option value="?hardware__manufacturer__id__exact=465">IGC</option>
+
+                            <option value="?hardware__manufacturer__id__exact=38">Igor Pavlov</option>
+
+                            <option value="?hardware__manufacturer__id__exact=371">ImageMagick Studio LLC</option>
+
+                            <option value="?hardware__manufacturer__id__exact=234">ImageWare Systems, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=233">ImageWare Sytems, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=361">_Impact360</option>
+
+                            <option value="?hardware__manufacturer__id__exact=357">Impact 360</option>
+
+                            <option value="?hardware__manufacturer__id__exact=316">IMPACT360</option>
+
+                            <option value="?hardware__manufacturer__id__exact=487">Indihiang</option>
+
+                            <option value="?hardware__manufacturer__id__exact=255">IndySoft</option>
+
+                            <option value="?hardware__manufacturer__id__exact=537">IndySoft Corporation</option>
+
+                            <option value="?hardware__manufacturer__id__exact=687">infinias</option>
+
+                            <option value="?hardware__manufacturer__id__exact=714">InfinityQS International</option>
+
+                            <option value="?hardware__manufacturer__id__exact=39">InfinityQS International, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=86">Informatica</option>
+
+                            <option value="?hardware__manufacturer__id__exact=87">Informatica Co.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=84">Informatica.com</option>
+
+                            <option value="?hardware__manufacturer__id__exact=284">Informatica Corporation</option>
+
+                            <option value="?hardware__manufacturer__id__exact=791">Informatica LLC</option>
+
+                            <option value="?hardware__manufacturer__id__exact=130">Information Builders, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=65">Infra</option>
+
+                            <option value="?hardware__manufacturer__id__exact=541">Infra Corporation</option>
+
+                            <option value="?hardware__manufacturer__id__exact=77">Infragistics, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=274">Inmagic</option>
+
+                            <option value="?hardware__manufacturer__id__exact=802">Inmagic, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=824">Inspur(Beijing) Electronic Information Industry Co., Ltd</option>
+
+                            <option value="?hardware__manufacturer__id__exact=320">InstallAware Software Corporation</option>
+
+                            <option value="?hardware__manufacturer__id__exact=2">Intel</option>
+
+                            <option value="?hardware__manufacturer__id__exact=825">Intel Corp.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=476">Intel Corporation</option>
+
+                            <option value="?hardware__manufacturer__id__exact=646">Intel(R) Corporation</option>
+
+                            <option value="?hardware__manufacturer__id__exact=137">Intergral Information Solutions GmbH</option>
+
+                            <option value="?hardware__manufacturer__id__exact=673">Intersystems Corp</option>
+
+                            <option value="?hardware__manufacturer__id__exact=386">Intuit</option>
+
+                            <option value="?hardware__manufacturer__id__exact=387">Intuit Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=336">Invensys Eurotherm</option>
+
+                            <option value="?hardware__manufacturer__id__exact=335">Invensys Operations Management</option>
+
+                            <option value="?hardware__manufacturer__id__exact=599">Invention Machine Corporation</option>
+
+                            <option value="?hardware__manufacturer__id__exact=703">iOpus</option>
+
+                            <option value="?hardware__manufacturer__id__exact=416">Irfan Skiljan</option>
+
+                            <option value="?hardware__manufacturer__id__exact=689">IronPython Team</option>
+
+                            <option value="?hardware__manufacturer__id__exact=580">ISS</option>
+
+                            <option value="?hardware__manufacturer__id__exact=826">jacklinks</option>
+
+                            <option value="?hardware__manufacturer__id__exact=66">JAM Software</option>
+
+                            <option value="?hardware__manufacturer__id__exact=604">Jenkins project</option>
+
+                            <option value="?hardware__manufacturer__id__exact=377">JetBrains s.r.o.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=479">Jihosoft Studio</option>
+
+                            <option value="?hardware__manufacturer__id__exact=107">Jim Radford</option>
+
+                            <option value="?hardware__manufacturer__id__exact=596">Jonas John</option>
+
+                            <option value="?hardware__manufacturer__id__exact=382">Joyent, Inc. and other Node contributors</option>
+
+                            <option value="?hardware__manufacturer__id__exact=827">Juniper Networks</option>
+
+                            <option value="?hardware__manufacturer__id__exact=108">Juniper Networks, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=413">JXplorer Open Source Project</option>
+
+                            <option value="?hardware__manufacturer__id__exact=314">Kai Kramer</option>
+
+                            <option value="?hardware__manufacturer__id__exact=396">Karen Kenworthy</option>
+
+                            <option value="?hardware__manufacturer__id__exact=94">KCI Computing, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=682">KEIL - Tools By ARM</option>
+
+                            <option value="?hardware__manufacturer__id__exact=78">Kepware</option>
+
+                            <option value="?hardware__manufacturer__id__exact=253">Key Metric Software</option>
+
+                            <option value="?hardware__manufacturer__id__exact=582">KGM</option>
+
+                            <option value="?hardware__manufacturer__id__exact=828">Kingston Technology Corp.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=10">Kinook Software, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=669">Kitware</option>
+
+                            <option value="?hardware__manufacturer__id__exact=616">Klocwork Inc</option>
+
+                            <option value="?hardware__manufacturer__id__exact=419">Kofax</option>
+
+                            <option value="?hardware__manufacturer__id__exact=418">Kofax Image Products</option>
+
+                            <option value="?hardware__manufacturer__id__exact=417">Kofax, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=207">Krengel Technology, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=617">Kyocera Mita Corporation</option>
+
+                            <option value="?hardware__manufacturer__id__exact=406">LabWare</option>
+
+                            <option value="?hardware__manufacturer__id__exact=405">LabWare Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=618">LabWare, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=674">LANSA</option>
+
+                            <option value="?hardware__manufacturer__id__exact=533">Lattix, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=737">Laurent Destailleur</option>
+
+                            <option value="?hardware__manufacturer__id__exact=772">Layer 7 Technologies</option>
+
+                            <option value="?hardware__manufacturer__id__exact=72">Lecron Inc</option>
+
+                            <option value="?hardware__manufacturer__id__exact=73">Lecron Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=79">Lecron Systems LLC.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=312">LEGATO Software, a Division of EMC</option>
+
+                            <option value="?hardware__manufacturer__id__exact=477">Lenel Systems International Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=829">LENOVO</option>
+
+                            <option value="?hardware__manufacturer__id__exact=803">Lepide Software Private Limited</option>
+
+                            <option value="?hardware__manufacturer__id__exact=157">Lexmark</option>
+
+                            <option value="?hardware__manufacturer__id__exact=723">LIQUENT - a PAREXEL company.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=549">Liquent, Inc</option>
+
+                            <option value="?hardware__manufacturer__id__exact=550">Liquent, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=806">LizardLabs</option>
+
+                            <option value="?hardware__manufacturer__id__exact=221">Loftware, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=331">Logger</option>
+
+                            <option value="?hardware__manufacturer__id__exact=375">Lonza Walkersville, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=563">Lookout Software, Ltd.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=470">LSI</option>
+
+                            <option value="?hardware__manufacturer__id__exact=468">LSICorp</option>
+
+                            <option value="?hardware__manufacturer__id__exact=711">Luxion ApS</option>
+
+                            <option value="?hardware__manufacturer__id__exact=712">Luxion, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=762">Macromedia</option>
+
+                            <option value="?hardware__manufacturer__id__exact=702">Macrovision Corporation</option>
+
+                            <option value="?hardware__manufacturer__id__exact=467">MadCap Software</option>
+
+                            <option value="?hardware__manufacturer__id__exact=606">Magnet Forensics</option>
+
+                            <option value="?hardware__manufacturer__id__exact=339">Mainsaver Software</option>
+
+                            <option value="?hardware__manufacturer__id__exact=830">marc</option>
+
+                            <option value="?hardware__manufacturer__id__exact=102">March Hare Software</option>
+
+                            <option value="?hardware__manufacturer__id__exact=693">MariaDB Corporation Ab</option>
+
+                            <option value="?hardware__manufacturer__id__exact=672">Mark Saeger/Original Author: Michael Johnson</option>
+
+                            <option value="?hardware__manufacturer__id__exact=90">Martin Prikryl</option>
+
+                            <option value="?hardware__manufacturer__id__exact=44">Massachusetts Institute of Technology</option>
+
+                            <option value="?hardware__manufacturer__id__exact=212">Materialise</option>
+
+                            <option value="?hardware__manufacturer__id__exact=80">MathWorks</option>
+
+                            <option value="?hardware__manufacturer__id__exact=20">Matrox Graphics Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=394">Matt Mackall and others</option>
+
+                            <option value="?hardware__manufacturer__id__exact=349">McAfee</option>
+
+                            <option value="?hardware__manufacturer__id__exact=21">McAfee, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=16">Medtronic</option>
+
+                            <option value="?hardware__manufacturer__id__exact=391">Medtronic ATS Medical, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=370">Medtronic Global FW Team</option>
+
+                            <option value="?hardware__manufacturer__id__exact=717">Medtronic Inc</option>
+
+                            <option value="?hardware__manufacturer__id__exact=369">Medtronic Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=175">Medtronic, Inc</option>
+
+                            <option value="?hardware__manufacturer__id__exact=70">Medtronic, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=428">Medtronic plc</option>
+
+                            <option value="?hardware__manufacturer__id__exact=564">MessageOps</option>
+
+                            <option value="?hardware__manufacturer__id__exact=440">Metalogix Software Corp</option>
+
+                            <option value="?hardware__manufacturer__id__exact=438">Metalogix Software Corp.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=648">Mettler-Toledo</option>
+
+                            <option value="?hardware__manufacturer__id__exact=302">Mettler-Toledo Corporation</option>
+
+                            <option value="?hardware__manufacturer__id__exact=731">Michael Johnson</option>
+
+                            <option value="?hardware__manufacturer__id__exact=42">MicroEdge, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=41">MicroEdge LLC.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=662">Micro Focus</option>
+
+                            <option value="?hardware__manufacturer__id__exact=7">Microsoft</option>
+
+                            <option value="?hardware__manufacturer__id__exact=132">Microsoft Corp.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=782">MicrosoftCorporation</option>
+
+                            <option value="?hardware__manufacturer__id__exact=3">Microsoft Corporation</option>
+
+                            <option value="?hardware__manufacturer__id__exact=376">Microsoft Corporations</option>
+
+                            <option value="?hardware__manufacturer__id__exact=163">Mike Fourie</option>
+
+                            <option value="?hardware__manufacturer__id__exact=498">MindGems, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=323">Minitab</option>
+
+                            <option value="?hardware__manufacturer__id__exact=520">Minitab, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=645">MJMSoft Design</option>
+
+                            <option value="?hardware__manufacturer__id__exact=792">Mobatek</option>
+
+                            <option value="?hardware__manufacturer__id__exact=770">Mobile Armor</option>
+
+                            <option value="?hardware__manufacturer__id__exact=297">Molex Corporation</option>
+
+                            <option value="?hardware__manufacturer__id__exact=459">MongoDB</option>
+
+                            <option value="?hardware__manufacturer__id__exact=715">Mortice Kern Systems</option>
+
+                            <option value="?hardware__manufacturer__id__exact=96">Mozilla</option>
+
+                            <option value="?hardware__manufacturer__id__exact=161">MSBuild Community Tasks</option>
+
+                            <option value="?hardware__manufacturer__id__exact=131">My Company Name</option>
+
+                            <option value="?hardware__manufacturer__id__exact=325">MySQL AB</option>
+
+                            <option value="?hardware__manufacturer__id__exact=538">Mythicsoft Ltd</option>
+
+                            <option value="?hardware__manufacturer__id__exact=362">N/A</option>
+
+                            <option value="?hardware__manufacturer__id__exact=280">National Instruments</option>
+
+                            <option value="?hardware__manufacturer__id__exact=831">NEC Corporation</option>
+
+                            <option value="?hardware__manufacturer__id__exact=531">Neo Technology</option>
+
+                            <option value="?hardware__manufacturer__id__exact=569">NetApp</option>
+
+                            <option value="?hardware__manufacturer__id__exact=388">NetApp, Inc</option>
+
+                            <option value="?hardware__manufacturer__id__exact=48">NetApp, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=379">NetBeans.org</option>
+
+                            <option value="?hardware__manufacturer__id__exact=49">Netegrity, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=593">Netskope, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=653">Network Intelligence Corporation</option>
+
+                            <option value="?hardware__manufacturer__id__exact=226">Neumetrix Limited</option>
+
+                            <option value="?hardware__manufacturer__id__exact=463">Neuromodulation</option>
+
+                            <option value="?hardware__manufacturer__id__exact=804">New Boundary Technologies</option>
+
+                            <option value="?hardware__manufacturer__id__exact=750">New Relic</option>
+
+                            <option value="?hardware__manufacturer__id__exact=208">Niagara4</option>
+
+                            <option value="?hardware__manufacturer__id__exact=276">NiagaraAX</option>
+
+                            <option value="?hardware__manufacturer__id__exact=322">Nick Pirocanac</option>
+
+                            <option value="?hardware__manufacturer__id__exact=148">Nimsoft AS</option>
+
+                            <option value="?hardware__manufacturer__id__exact=439">Nintex</option>
+
+                            <option value="?hardware__manufacturer__id__exact=269">Nitro PDF Software</option>
+
+                            <option value="?hardware__manufacturer__id__exact=156">Node.js Foundation</option>
+
+                            <option value="?hardware__manufacturer__id__exact=216">NoMachine</option>
+
+                            <option value="?hardware__manufacturer__id__exact=64">NoMachine S.a.r.l.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=93">&lt;no manufacturer&gt;</option>
+
+                            <option value="?hardware__manufacturer__id__exact=484">NOS Microsystems Ltd.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=186">Notepad++</option>
+
+                            <option value="?hardware__manufacturer__id__exact=27">Notepad++ Team</option>
+
+                            <option value="?hardware__manufacturer__id__exact=340">Novatek International</option>
+
+                            <option value="?hardware__manufacturer__id__exact=105">Now Micro</option>
+
+                            <option value="?hardware__manufacturer__id__exact=745">Nuance Communications, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=548">NuGenesis Technologies Corp.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=266">NuGenesis Technologies Corporation a division of Waters Corporation</option>
+
+                            <option value="?hardware__manufacturer__id__exact=671">nunit.org</option>
+
+                            <option value="?hardware__manufacturer__id__exact=170">Objectif Lune</option>
+
+                            <option value="?hardware__manufacturer__id__exact=168">Objectif Lune Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=9">Octopus Deploy Pty. Ltd.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=704">OLAP Underground</option>
+
+                            <option value="?hardware__manufacturer__id__exact=454">Omnify Software</option>
+
+                            <option value="?hardware__manufacturer__id__exact=82">Omnitrend Software, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=300">Online Development, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=287">OPC Foundation</option>
+
+                            <option value="?hardware__manufacturer__id__exact=343">OPC Labs</option>
+
+                            <option value="?hardware__manufacturer__id__exact=181">OpenSSL Win32 Installer Team</option>
+
+                            <option value="?hardware__manufacturer__id__exact=574">OpenSSL Win64 Installer Team</option>
+
+                            <option value="?hardware__manufacturer__id__exact=333">OpenText</option>
+
+                            <option value="?hardware__manufacturer__id__exact=780">Open Text</option>
+
+                            <option value="?hardware__manufacturer__id__exact=633">Open Text, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=631">OpenText, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=11">OPNET Technologies</option>
+
+                            <option value="?hardware__manufacturer__id__exact=15">Oracle</option>
+
+                            <option value="?hardware__manufacturer__id__exact=372">Oracle and/or its affiliates</option>
+
+                            <option value="?hardware__manufacturer__id__exact=32">Oracle Corporation</option>
+
+                            <option value="?hardware__manufacturer__id__exact=278">Oracle Corporation.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=245">Oracle, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=178">ORTEC</option>
+
+                            <option value="?hardware__manufacturer__id__exact=623">Outercurve Foundation</option>
+
+                            <option value="?hardware__manufacturer__id__exact=281">Paceart</option>
+
+                            <option value="?hardware__manufacturer__id__exact=67">PageTech</option>
+
+                            <option value="?hardware__manufacturer__id__exact=764">PAL</option>
+
+                            <option value="?hardware__manufacturer__id__exact=462">Paralect</option>
+
+                            <option value="?hardware__manufacturer__id__exact=183">Parametric Technology Corporation</option>
+
+                            <option value="?hardware__manufacturer__id__exact=799">PAREXEL International Corp.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=292">Parker Hannifin Corporation</option>
+
+                            <option value="?hardware__manufacturer__id__exact=272">Passmark Software</option>
+
+                            <option value="?hardware__manufacturer__id__exact=452">PDWare</option>
+
+                            <option value="?hardware__manufacturer__id__exact=344">Pepperl+Fuchs GmbH</option>
+
+                            <option value="?hardware__manufacturer__id__exact=177">Perceptive Software</option>
+
+                            <option value="?hardware__manufacturer__id__exact=174">Pervasive Software</option>
+
+                            <option value="?hardware__manufacturer__id__exact=706">PFU LIMITED</option>
+
+                            <option value="?hardware__manufacturer__id__exact=166">PGP Corporation</option>
+
+                            <option value="?hardware__manufacturer__id__exact=299">Phoenix Digital, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=124">Piriform</option>
+
+                            <option value="?hardware__manufacturer__id__exact=622">Pivotal Software, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=359">PlatformManifests</option>
+
+                            <option value="?hardware__manufacturer__id__exact=832">Plat&#39;Home</option>
+
+                            <option value="?hardware__manufacturer__id__exact=330">Playback</option>
+
+                            <option value="?hardware__manufacturer__id__exact=642">PlayerComponent Package</option>
+
+                            <option value="?hardware__manufacturer__id__exact=492">Pocket Programs</option>
+
+                            <option value="?hardware__manufacturer__id__exact=321">Portfolio Decisionware Inc</option>
+
+                            <option value="?hardware__manufacturer__id__exact=193">PostgreSQL Global Development Group</option>
+
+                            <option value="?hardware__manufacturer__id__exact=833">Powerleader</option>
+
+                            <option value="?hardware__manufacturer__id__exact=363">Power Software Ltd</option>
+
+                            <option value="?hardware__manufacturer__id__exact=74">PreEmptive Solutions</option>
+
+                            <option value="?hardware__manufacturer__id__exact=800">PremierPoint Solutions</option>
+
+                            <option value="?hardware__manufacturer__id__exact=716">PrestoSoft LLC</option>
+
+                            <option value="?hardware__manufacturer__id__exact=285">PRISYM ID</option>
+
+                            <option value="?hardware__manufacturer__id__exact=530">PRISYMid Ltd</option>
+
+                            <option value="?hardware__manufacturer__id__exact=499">Process Dynamics, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=237">Prolific Technology INC</option>
+
+                            <option value="?hardware__manufacturer__id__exact=544">Prolink</option>
+
+                            <option value="?hardware__manufacturer__id__exact=294">ProSoft Technology, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=688">ProtonMedia</option>
+
+                            <option value="?hardware__manufacturer__id__exact=91">PSC</option>
+
+                            <option value="?hardware__manufacturer__id__exact=153">PTC</option>
+
+                            <option value="?hardware__manufacturer__id__exact=614">PTC Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=522">Pulse Secure, LLC</option>
+
+                            <option value="?hardware__manufacturer__id__exact=145">Puppet Labs</option>
+
+                            <option value="?hardware__manufacturer__id__exact=81">Python Software Foundation</option>
+
+                            <option value="?hardware__manufacturer__id__exact=408">QAD</option>
+
+                            <option value="?hardware__manufacturer__id__exact=311">QlikTech International AB</option>
+
+                            <option value="?hardware__manufacturer__id__exact=469">QLogic</option>
+
+                            <option value="?hardware__manufacturer__id__exact=767">QUADROtech</option>
+
+                            <option value="?hardware__manufacturer__id__exact=557">QUADROtech Solutions AG.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=471">Quest</option>
+
+                            <option value="?hardware__manufacturer__id__exact=204">Quest Software</option>
+
+                            <option value="?hardware__manufacturer__id__exact=442">Quest Software Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=30">Quest Software, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=834">Rackable</option>
+
+                            <option value="?hardware__manufacturer__id__exact=766">Radiant Logic, Inc</option>
+
+                            <option value="?hardware__manufacturer__id__exact=511">Rainbow Technologies</option>
+
+                            <option value="?hardware__manufacturer__id__exact=757">Raize Software, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=518">Ranorex GmbH</option>
+
+                            <option value="?hardware__manufacturer__id__exact=182">Rational Software</option>
+
+                            <option value="?hardware__manufacturer__id__exact=575">Ravello, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=199">R Core Team</option>
+
+                            <option value="?hardware__manufacturer__id__exact=752">Ready-to-Run Software, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=591">RealVNC Ltd</option>
+
+                            <option value="?hardware__manufacturer__id__exact=784">Recommind</option>
+
+                            <option value="?hardware__manufacturer__id__exact=597">ReliaSoft</option>
+
+                            <option value="?hardware__manufacturer__id__exact=640">RepliWeb,Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=209">Research In Motion</option>
+
+                            <option value="?hardware__manufacturer__id__exact=641">Research In Motion Ltd</option>
+
+                            <option value="?hardware__manufacturer__id__exact=215">Research In Motion Ltd.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=540">Rick Houchins</option>
+
+                            <option value="?hardware__manufacturer__id__exact=28">Riverbed Technology, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=205">RJG Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=367">RMG Networks</option>
+
+                            <option value="?hardware__manufacturer__id__exact=384">RMTrack Issue Tracking Solutions Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=147">RobWare</option>
+
+                            <option value="?hardware__manufacturer__id__exact=341">Rockwell Automation</option>
+
+                            <option value="?hardware__manufacturer__id__exact=303">Rockwell Automation.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=630">Rockwell Automation, Inc</option>
+
+                            <option value="?hardware__manufacturer__id__exact=289">Rockwell Automation, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=307">Rockwell Software</option>
+
+                            <option value="?hardware__manufacturer__id__exact=296">Rockwell Software, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=678">Rogue Wave Software, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=358">R&amp;R</option>
+
+                            <option value="?hardware__manufacturer__id__exact=759">RSA</option>
+
+                            <option value="?hardware__manufacturer__id__exact=337">RStudio</option>
+
+                            <option value="?hardware__manufacturer__id__exact=543">Runaware</option>
+
+                            <option value="?hardware__manufacturer__id__exact=236">S2 Security Corp</option>
+
+                            <option value="?hardware__manufacturer__id__exact=571">Saba Solutions Ltd.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=222">SafeNet, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=665">salesforce.com</option>
+
+                            <option value="?hardware__manufacturer__id__exact=59">SAP</option>
+
+                            <option value="?hardware__manufacturer__id__exact=50">SAP AG</option>
+
+                            <option value="?hardware__manufacturer__id__exact=75">SAP BusinessObjects</option>
+
+                            <option value="?hardware__manufacturer__id__exact=144">SAPIEN Technologies, Inc</option>
+
+                            <option value="?hardware__manufacturer__id__exact=143">SAPIEN Technologies, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=57">SAP SE</option>
+
+                            <option value="?hardware__manufacturer__id__exact=680">Scala, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=104">SCCM Tools</option>
+
+                            <option value="?hardware__manufacturer__id__exact=430">Schlafender Hase GmbH</option>
+
+                            <option value="?hardware__manufacturer__id__exact=485">Schneider Electric</option>
+
+                            <option value="?hardware__manufacturer__id__exact=494">Sciemetric Instruments Inc</option>
+
+                            <option value="?hardware__manufacturer__id__exact=435">Sciemetric Instruments Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=584">SCM Microsystems</option>
+
+                            <option value="?hardware__manufacturer__id__exact=779">SCOM2K7</option>
+
+                            <option value="?hardware__manufacturer__id__exact=150">Scooter Software</option>
+
+                            <option value="?hardware__manufacturer__id__exact=625">SCORCH Dev</option>
+
+                            <option value="?hardware__manufacturer__id__exact=509">SDL International</option>
+
+                            <option value="?hardware__manufacturer__id__exact=217">Seagull Scientific</option>
+
+                            <option value="?hardware__manufacturer__id__exact=378">Seapine Software, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=690">SEIKO EPSON Corporation</option>
+
+                            <option value="?hardware__manufacturer__id__exact=527">Sensormatic Electronics Corporation</option>
+
+                            <option value="?hardware__manufacturer__id__exact=224">Serena</option>
+
+                            <option value="?hardware__manufacturer__id__exact=628">Serena Software</option>
+
+                            <option value="?hardware__manufacturer__id__exact=203">Serena Software, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=835">SGI</option>
+
+                            <option value="?hardware__manufacturer__id__exact=397">Sharegate</option>
+
+                            <option value="?hardware__manufacturer__id__exact=437">Sharepoint Design Center</option>
+
+                            <option value="?hardware__manufacturer__id__exact=801">SharePoint Solutions</option>
+
+                            <option value="?hardware__manufacturer__id__exact=448">Shoptech Industrial Software Corp.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=446">Shoptech Industrial Software Corporation</option>
+
+                            <option value="?hardware__manufacturer__id__exact=449">Shoptech Software</option>
+
+                            <option value="?hardware__manufacturer__id__exact=210">Siemens Product Lifecycle Management Software Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=443">Sigmetrix LLC</option>
+
+                            <option value="?hardware__manufacturer__id__exact=643">Silicon Laboratories</option>
+
+                            <option value="?hardware__manufacturer__id__exact=273">Simego</option>
+
+                            <option value="?hardware__manufacturer__id__exact=425">Simon Steele</option>
+
+                            <option value="?hardware__manufacturer__id__exact=88">Simon Tatham</option>
+
+                            <option value="?hardware__manufacturer__id__exact=504">Simpo Technologies</option>
+
+                            <option value="?hardware__manufacturer__id__exact=472">Simtec Limited</option>
+
+                            <option value="?hardware__manufacturer__id__exact=187">Sitrion</option>
+
+                            <option value="?hardware__manufacturer__id__exact=552">Skyfence Networks Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=83">SmartBear Software</option>
+
+                            <option value="?hardware__manufacturer__id__exact=286">Smart Projects</option>
+
+                            <option value="?hardware__manufacturer__id__exact=433">SmartSoft Ltd</option>
+
+                            <option value="?hardware__manufacturer__id__exact=432">SmartSoft Ltd.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=707">SmartSVN GmbH</option>
+
+                            <option value="?hardware__manufacturer__id__exact=535">SMART Technologies ULC</option>
+
+                            <option value="?hardware__manufacturer__id__exact=534">SMART Technologies ULC.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=626">SMC Corporation</option>
+
+                            <option value="?hardware__manufacturer__id__exact=441">SMS2003 Tools</option>
+
+                            <option value="?hardware__manufacturer__id__exact=502">Sobolsoft</option>
+
+                            <option value="?hardware__manufacturer__id__exact=151">Soeperman Enterprises Ltd.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=795">Softerra</option>
+
+                            <option value="?hardware__manufacturer__id__exact=190">Softerra, Ltd.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=89">Software AG</option>
+
+                            <option value="?hardware__manufacturer__id__exact=402">SoftwareFX</option>
+
+                            <option value="?hardware__manufacturer__id__exact=805">Software FX Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=526">Software House</option>
+
+                            <option value="?hardware__manufacturer__id__exact=342">Software Toolbox</option>
+
+                            <option value="?hardware__manufacturer__id__exact=345">Software Toolbox Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=200">SolarWinds</option>
+
+                            <option value="?hardware__manufacturer__id__exact=570">SolarWinds, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=516">SolidWorks</option>
+
+                            <option value="?hardware__manufacturer__id__exact=515">SolidWorks Corporation</option>
+
+                            <option value="?hardware__manufacturer__id__exact=458">SourceCode Technology Holdings, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=98">SourceGear, LLC</option>
+
+                            <option value="?hardware__manufacturer__id__exact=53">Sparta Systems, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=521">Sparx Systems Pty Ltd</option>
+
+                            <option value="?hardware__manufacturer__id__exact=298">Spectrum Controls, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=681">Spirent Communications</option>
+
+                            <option value="?hardware__manufacturer__id__exact=109">Spok, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=456">Squared Up Ltd</option>
+
+                            <option value="?hardware__manufacturer__id__exact=789">Srinath Sadda</option>
+
+                            <option value="?hardware__manufacturer__id__exact=112">StayLinked Corporation</option>
+
+                            <option value="?hardware__manufacturer__id__exact=277">STEALTHbits Technologies, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=666">Stellar Information Systems Ltd.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=649">Steve Borho and others</option>
+
+                            <option value="?hardware__manufacturer__id__exact=231">STOPware, inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=675">Stratum Global Inc</option>
+
+                            <option value="?hardware__manufacturer__id__exact=326">strawberryperl.com project</option>
+
+                            <option value="?hardware__manufacturer__id__exact=409">Sublime HQ Pty Ltd</option>
+
+                            <option value="?hardware__manufacturer__id__exact=373">Sun Microsystems</option>
+
+                            <option value="?hardware__manufacturer__id__exact=51">Sun Microsystems, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=836">Super Micro Computer, Inc.</option>
+
+                            <option value="?hardware__manufacturer__id__exact=348">Sybase</option>
+
+                            <option value="?hardware__manufacturer__id__exact=601">Sybase Inc</option>
+
+                            <option value="?hardware__manufacturer__id__exact=165">Symantec</option>
+
+                            <option value="?hardware__manufacturer__id__exact=164">Symantec.com</option>
+
+                            <option value="?hardware__manufacturer__id__exact=6">Symantec Corporation</option>
+
+                            <option value="?hardware__manufacturer__id__exact=179">Symantec, Inc.</option>
+                            <option value="?hardware__manufacturer__id__exact=355">Symbol Click</option>
+                            <option value="?hardware__manufacturer__id__exact=697">Symon Communcations Inc.</option>
+                            <option value="?hardware__manufacturer__id__exact=695">Symon Communications Inc.</option>
+                            <option value="?hardware__manufacturer__id__exact=696">Symon Communications, Inc.</option>
+                            <option value="?hardware__manufacturer__id__exact=797">Synametrics Technologies</option>
+                            <option value="?hardware__manufacturer__id__exact=722">Synopsys, Inc.</option>
+                            <option value="?hardware__manufacturer__id__exact=390">syntevo GmbH</option>
+                            <option value="?hardware__manufacturer__id__exact=608">Sysprogs</option>
+                            <option value="?hardware__manufacturer__id__exact=194">Tableau Software</option>
+                            <option value="?hardware__manufacturer__id__exact=619">TAL Technologies, Inc.</option>
+                            <option value="?hardware__manufacturer__id__exact=579">Tandem Systems, Ltd.</option>
+                            <option value="?hardware__manufacturer__id__exact=238">TeamMate</option>
+                            <option value="?hardware__manufacturer__id__exact=92">Teklynx Newco SAS</option>
+                            <option value="?hardware__manufacturer__id__exact=602">Telelogic</option>
+                            <option value="?hardware__manufacturer__id__exact=26">Telerik</option>
+                            <option value="?hardware__manufacturer__id__exact=424">Telestream, Inc.</option>
+                            <option value="?hardware__manufacturer__id__exact=411">TestKing</option>
+                            <option value="?hardware__manufacturer__id__exact=149">Test-King</option>
+                            <option value="?hardware__manufacturer__id__exact=769">TextFileSplitter.org</option>
+                            <option value="?hardware__manufacturer__id__exact=603">TGRMN Software</option>
+                            <option value="?hardware__manufacturer__id__exact=741">The Firebird Project</option>
+                            <option value="?hardware__manufacturer__id__exact=267">The Git Development Community</option>
+                            <option value="?hardware__manufacturer__id__exact=754">The Npgsql Development Team</option>
+                            <option value="?hardware__manufacturer__id__exact=71">Theobald Software GmbH</option>
+                            <option value="?hardware__manufacturer__id__exact=246">The pgAdmin Development Team</option>
+                            <option value="?hardware__manufacturer__id__exact=35">The PHP Group</option>
+                            <option value="?hardware__manufacturer__id__exact=225">The Wireshark developer community, https://www.wireshark.org</option>
+                            <option value="?hardware__manufacturer__id__exact=29">The Wireshark developer community, http://www.wireshark.org</option>
+                            <option value="?hardware__manufacturer__id__exact=141">Thingamahoochie Software</option>
+                            <option value="?hardware__manufacturer__id__exact=728">ThoughtWorks</option>
+                            <option value="?hardware__manufacturer__id__exact=746">ThoughtWorks(Medtronic)</option>
+                            <option value="?hardware__manufacturer__id__exact=399">Tibco</option>
+                            <option value="?hardware__manufacturer__id__exact=25">TIBCO Software Inc.</option>
+                            <option value="?hardware__manufacturer__id__exact=196">TicSoftware</option>
+                            <option value="?hardware__manufacturer__id__exact=195">TIC Software</option>
+                            <option value="?hardware__manufacturer__id__exact=309">TimeTrex</option>
+                            <option value="?hardware__manufacturer__id__exact=85">Tim Kosse</option>
+                            <option value="?hardware__manufacturer__id__exact=451">TITUS Inc.</option>
+                            <option value="?hardware__manufacturer__id__exact=753">TortoiseGit</option>
+                            <option value="?hardware__manufacturer__id__exact=37">TortoiseSVN</option>
+                            <option value="?hardware__manufacturer__id__exact=734">Totusoft</option>
+                            <option value="?hardware__manufacturer__id__exact=562">Tracker Products</option>
+                            <option value="?hardware__manufacturer__id__exact=310">Tracker Software</option>
+                            <option value="?hardware__manufacturer__id__exact=347">TRIRIGA</option>
+                            <option value="?hardware__manufacturer__id__exact=385">Tri-Sector, Inc.</option>
+                            <option value="?hardware__manufacturer__id__exact=235">TTI</option>
+                            <option value="?hardware__manufacturer__id__exact=566">TweakMarketing</option>
+                            <option value="?hardware__manufacturer__id__exact=837">Tyan Computer Corp.</option>
+                            <option value="?hardware__manufacturer__id__exact=525">Tyco</option>
+                            <option value="?hardware__manufacturer__id__exact=528">Tyco Security Products</option>
+                            <option value="?hardware__manufacturer__id__exact=667">U2U</option>
+                            <option value="?hardware__manufacturer__id__exact=508">UGS</option>
+                            <option value="?hardware__manufacturer__id__exact=587">UltiDev LLC</option>
+                            <option value="?hardware__manufacturer__id__exact=592">Unknown</option>
+                            <option value="?hardware__manufacturer__id__exact=664">Uplinx Software Pty Ltd</option>
+                            <option value="?hardware__manufacturer__id__exact=588">UPS</option>
+                            <option value="?hardware__manufacturer__id__exact=565">uvnc bvba</option>
+                            <option value="?hardware__manufacturer__id__exact=254">Vaisala</option>
+                            <option value="?hardware__manufacturer__id__exact=787">Vault Solutions LLC</option>
+                            <option value="?hardware__manufacturer__id__exact=58">VBrick</option>
+                            <option value="?hardware__manufacturer__id__exact=585">VBrick Systems, Inc.</option>
+                            <option value="?hardware__manufacturer__id__exact=423">VBrick-v6.3.6.2</option>
+                            <option value="?hardware__manufacturer__id__exact=172">Veeam</option>
+                            <option value="?hardware__manufacturer__id__exact=167">Veeam Software</option>
+                            <option value="?hardware__manufacturer__id__exact=482">Veramark</option>
+                            <option value="?hardware__manufacturer__id__exact=838">Verari Systems, Inc.</option>
+                            <option value="?hardware__manufacturer__id__exact=328">Verint</option>
+                            <option value="?hardware__manufacturer__id__exact=561">Verint, Inc.</option>
+                            <option value="?hardware__manufacturer__id__exact=457">Verint System, Inc.</option>
+                            <option value="?hardware__manufacturer__id__exact=505">Verint Systems</option>
+                            <option value="?hardware__manufacturer__id__exact=95">VERITAS Software India Pvt. Ltd.</option>
+                            <option value="?hardware__manufacturer__id__exact=250">Veritas Technologies LLC</option>
+                            <option value="?hardware__manufacturer__id__exact=763">Veriteq Instruments</option>
+                            <option value="?hardware__manufacturer__id__exact=229">Vertex Inc.</option>
+                            <option value="?hardware__manufacturer__id__exact=142">Vexasoft</option>
+                            <option value="?hardware__manufacturer__id__exact=414">VideoLAN</option>
+                            <option value="?hardware__manufacturer__id__exact=191">Visual BI Solutions</option>
+                            <option value="?hardware__manufacturer__id__exact=240">VisualSVN Ltd.</option>
+                            <option value="?hardware__manufacturer__id__exact=383">VI Technology</option>
+                            <option value="?hardware__manufacturer__id__exact=558">Vivio Technologies</option>
+                            <option value="?hardware__manufacturer__id__exact=368">VMware</option>
+                            <option value="?hardware__manufacturer__id__exact=43">VMware, Inc</option>
+                            <option value="?hardware__manufacturer__id__exact=4">VMware, Inc.</option>
+                            <option value="?hardware__manufacturer__id__exact=586">V-Technologies LLC</option>
+                            <option value="?hardware__manufacturer__id__exact=260">Waters</option>
+                            <option value="?hardware__manufacturer__id__exact=265">Waters Corp</option>
+                            <option value="?hardware__manufacturer__id__exact=263">Waters Corp.</option>
+                            <option value="?hardware__manufacturer__id__exact=257">Waters Corporation</option>
+                            <option value="?hardware__manufacturer__id__exact=264">Waters NuGenesis Technologies Corp.</option>
+                            <option value="?hardware__manufacturer__id__exact=162">WebEx Communications, Inc</option>
+                            <option value="?hardware__manufacturer__id__exact=581">Westec InterActive</option>
+                            <option value="?hardware__manufacturer__id__exact=839">Western Digital</option>
+                            <option value="?hardware__manufacturer__id__exact=578">WesternTelematic Inc.</option>
+                            <option value="?hardware__manufacturer__id__exact=519">WIBU-SYSTEMS AG</option>
+                            <option value="?hardware__manufacturer__id__exact=227">WinISO Computing Inc.</option>
+                            <option value="?hardware__manufacturer__id__exact=134">win.rar GmbH</option>
+                            <option value="?hardware__manufacturer__id__exact=634">Winshuttle Composer</option>
+                            <option value="?hardware__manufacturer__id__exact=315">Winshuttle, LLC.</option>
+                            <option value="?hardware__manufacturer__id__exact=635">Winshuttle,LLC.</option>
+                            <option value="?hardware__manufacturer__id__exact=514">WinZip Computing, Inc.</option>
+                            <option value="?hardware__manufacturer__id__exact=249">WinZip Computing, S.L.</option>
+                            <option value="?hardware__manufacturer__id__exact=573">Wise Solutions, Inc.</option>
+                            <option value="?hardware__manufacturer__id__exact=429">Workshare</option>
+                            <option value="?hardware__manufacturer__id__exact=317">Worksoft</option>
+                            <option value="?hardware__manufacturer__id__exact=319">Worksoft Inc</option>
+                            <option value="?hardware__manufacturer__id__exact=318">Worksoft Inc.</option>
+                            <option value="?hardware__manufacturer__id__exact=724">Worksoft, Inc.</option>
+                            <option value="?hardware__manufacturer__id__exact=403">Wowza Media Systems</option>
+                            <option value="?hardware__manufacturer__id__exact=496">Wrensoft</option>
+                            <option value="?hardware__manufacturer__id__exact=576">&quot;WTI&quot;</option>
+                            <option value="?hardware__manufacturer__id__exact=401">www.codeplex.com/tfsadmin</option>
+                            <option value="?hardware__manufacturer__id__exact=676">www.isoopener.com</option>
+                            <option value="?hardware__manufacturer__id__exact=420">Xamarin</option>
+                            <option value="?hardware__manufacturer__id__exact=686">Xamarin, Inc.</option>
+                            <option value="?hardware__manufacturer__id__exact=506">Xerox</option>
+                            <option value="?hardware__manufacturer__id__exact=718">Xerox Corporation</option>
+                            <option value="?hardware__manufacturer__id__exact=202">Yahoo Inc.</option>
+                            <option value="?hardware__manufacturer__id__exact=228">Youngzsoft, Inc.</option>
+                            <option value="?hardware__manufacturer__id__exact=125">Your Company Name</option>
+                            <option value="?hardware__manufacturer__id__exact=793">Y Soft Corporation</option>
+                            <option value="?hardware__manufacturer__id__exact=185">Zasio</option>
+                            <option value="?hardware__manufacturer__id__exact=184">Zasio Enterprises, Inc.</option>
+                            <option value="?hardware__manufacturer__id__exact=160">Zebra Technologies</option>
+                            <option value="?hardware__manufacturer__id__exact=256">Zebra Technologies Corporation</option>
+                            <option value="?hardware__manufacturer__id__exact=560">ZJMedia Ltd.</option>
+                            <option value="?hardware__manufacturer__id__exact=840">ZT Systems</option>
+                            <option value="?hardware__manufacturer__id__exact=354">Zugo Ltd</option>
+                            <option value="?hardware__manufacturer__id__exact=121">ZUKEN</option>
+                            <option value="?hardware__manufacturer__id__exact=120">ZUKEN. Inc</option>
+                            <option value="?hardware__manufacturer__id__exact=594">Zumatrix, Inc.</option>
+                            <option value="?hardware__manufacturer__isnull=True">(Никакой)</option>
+                        </select>
+                    </form>
+                    <h3>Теги</h3>
+                    <form>
+                        <select  style="width:100%" id="filter-Теги"  onchange="window.location=this.value">
+                            <option selected="selected" value="?">Все</option>
+                            <option value="?tag=-1">(Никакой)</option>
+                        </select>
+                    </form>
+                    <h3>cust_override</h3>
+                    <form>
+                        <select  style="width:100%" id="filter-cust_override"  onchange="window.location=this.value">
+                            <option selected="selected" value="?">Все</option>
+                            <option value="?cust_override=one">one</option>
+                        </select>
+                    </form>
+                </div>
+                <form id="changelist-form" action="" method="post">
+                    <div style='display:none'>
+                        <input type='hidden' name='csrfmiddlewaretoken' value='sFiutVJCCHoWsJyO8fQM0N8CzYhdkM5y' />
+                    </div>
+                    <p class="paginator">
+                        0 Устройства
+                    </p>
+                </form>
+            </div>
+        </div>
+        <script type="text/javascript" src="../../../static/js/custom/sticky_header_change_list.js"></script>
+
+
+        <br class="clear" />
+    </div>
+
+    <!-- END Content -->
+    <div id="footer"></div>
+    <div style="display: none;" id="go-to-bottom"><a style="cursor:pointer;">Back to Top</a></div>
+
+</div>
+<!-- END Container -->
+
+
+
+</body>
+</html>

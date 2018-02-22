@@ -1,0 +1,10 @@
+.view-form .inline-group .tabular td.original p {
+    display: none;
+}
+
+.view-form .tabular td.field-value{
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    white-space: normal;
+    max-width: 50vw;
+}

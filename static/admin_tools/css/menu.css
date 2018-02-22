@@ -1,0 +1,229 @@
+/* menu styles */
+
+#header {
+    overflow: visible;
+}
+
+#header ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    z-index: 9999;
+}
+
+#header ul li {
+    position: relative;
+    list-style: none;
+    padding: 0;
+}
+
+#header ul li a {
+    white-space: nowrap;
+}
+
+#header #navigation-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 35px;
+    z-index: 9999;
+    background-color: #f4f5f7;
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.2);
+}
+
+#header #bookmark-button {
+    cursor: pointer;
+    position: fixed;
+    top: 0;
+    right: 15px;
+    height: 25px;
+    width: 24px;
+    margin-top: 4px;
+    border: none;
+    text-indent: -5000px;
+    overflow: hidden;
+    z-index: 10000;
+    background: transparent url('../images/admin-tools.png') no-repeat 0 -425px;
+}
+
+#header #bookmark-button.bookmarked {
+    background-position: 0 -445px;
+}
+
+#header ul#navigation-menu li {
+    float: left;
+    border-right: 1px solid #dfe1e6;
+    transition: all .4s ease;
+}
+
+#header ul#navigation-menu li a {
+    display: table;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 12px 30px 12px 15px;
+    color: #42526E;
+    text-align:left;
+}
+
+#header ul#navigation-menu li.disabled a {
+    color: #bbb;
+    cursor: default;
+}
+
+#header ul#navigation-menu li.first a {
+    margin: 6px 0 0 5px;
+    padding-top: 6px;
+    text-indent: 14px;
+    background: url('../images/admin-tools.png') no-repeat 5px -381px;
+}
+
+#header ul#navigation-menu li span {
+    display: inline-block;
+}
+
+#header ul#navigation-menu li span.icon {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    height: 10px;
+    width: 20px;
+    background: transparent url('../images/admin-tools.png') no-repeat 0 -360px;
+    /*display:inline-block;*/
+}
+
+#header ul#navigation-menu li:hover,
+#header ul#navigation-menu li.over,
+#header ul#navigation-menu li.selected {
+    background-color: #ebecf0;
+}
+
+#header ul#navigation-menu li ul {
+    display: none;
+    position: absolute;
+    top: 104%;
+    left: auto;
+    margin-left: -1px;
+    margin-top: -1px;
+}
+
+#header ul#navigation-menu > li.inverted > ul {
+    right: 0;
+}
+
+#header ul#navigation-menu li ul li {
+    padding: 0;
+    float: none;
+    background: none;
+    z-index: 9999;
+    border: 1px solid #dfe1e6;
+    border-width: 0 1px 1px 1px;
+}
+
+#header ul#navigation-menu li ul li:first-child {
+    border-top-width: 1px;
+}
+
+#header ul#navigation-menu li ul li a {
+   /* border-bottom: 1px solid #dfe1e6; */
+    display: block;
+    /*border-color: #EDEDED;
+    border-color: #EEEEEE;
+    border-style: solid;
+    border-bottom-width: 1px;
+    border-width: 0 1px 1px 1px;*/
+    text-transform: none;
+    min-width: 180px;
+    
+}
+
+#header ul#navigation-menu li ul li span.icon {
+    background-position: 0 -370px;
+}
+
+#header ul#navigation-menu li ul li ul {
+    left: 100.5%;
+    top: 0;
+    /*border-top: 1px solid #dfe1e6;*/
+}
+
+#header ul#navigation-menu > li > ul > li.inverted > ul {
+    left: auto;
+    right: 100%;
+}
+
+#header ul#navigation-menu li ul li ul li a {
+    white-space: nowrap;
+}
+
+#header ul#navigation-menu li:hover ul li ul,
+#header ul#navigation-menu li.over ul li ul {
+    display: none;
+}
+
+#header ul#navigation-menu li:hover ul,
+#header ul#navigation-menu li.over ul,
+#header ul#navigation-menu li ul li:hover ul,
+#header ul#navigation-menu li ul li.over ul {
+    display: block;
+    background-color: #F4F5F7;
+}
+
+#header ul#navigation-menu li:hover ul li,
+#header ul#navigation-menu li.over ul li,
+#header ul#navigation-menu li ul li:hover ul li,
+#header ul#navigation-menu li ul li.over ul li {
+    /*background-color: #F4F5F7;*/
+}
+
+#header ul#navigation-menu li ul li:hover,
+#header ul#navigation-menu li ul li.over,
+#header ul#navigation-menu li ul li ul li:hover,
+#header ul#navigation-menu li ul li ul li.over {
+    /*background-color: rgba(9, 30, 66, 0.04);*/
+}
+
+#header ul#navigation-menu li.disabled a:hover,
+#header ul#navigation-menu li.disabled a.over {
+    background: none;
+}
+
+/* ------------------------------------------------------------------------ */
+/* Header - Searchform */
+/* ------------------------------------------------------------------------ */
+
+#header-searchform {
+
+    margin-left: 10px;
+
+}
+
+#header-searchform input {
+    padding: 8px 0 8px 34px;
+    width: 0;
+    font-size: 12px;
+    line-height: 1;
+    cursor: pointer;
+    background: url('../images/search.png') no-repeat 10px 8px;
+    border: none;
+    -webkit-transition:all 0.4s ease 0s;
+    -moz-transition:all 0.4s ease 0s;
+    -o-transition:all 0.4s ease 0s;
+    transition:all 0.4s ease 0s;
+    -webkit-box-shadow:none;
+    -moz-box-shadow:none;
+    box-shadow:none;
+    color: #ffffff;
+}
+
+#header-searchform input:focus {
+    font-size: 12px;
+    padding: 8px 0 8px 34px;
+    width: 115px;
+    border: none;
+    color: #555555;
+    background-color: #d7d7d7;
+    cursor: text;
+}
+
+#header-searchform #header-searchsubmit { display: none; } /* Hide Search Submit button */
