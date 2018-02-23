@@ -44,7 +44,7 @@
     text-indent: -5000px;
     overflow: hidden;
     z-index: 10000;
-    background: transparent url('../images/admin-tools.png') no-repeat 0 -425px;
+    background: transparent url(/static/admin_tools/images/admin-tools.png) no-repeat 0 -425px;
 }
 
 #header #bookmark-button.bookmarked {
@@ -75,7 +75,7 @@
     margin: 6px 0 0 5px;
     padding-top: 6px;
     text-indent: 14px;
-    background: url('../images/admin-tools.png') no-repeat 5px -381px;
+    background: url(/static/admin_tools/images/admin-tools.png) no-repeat 5px -381px;
 }
 
 #header ul#navigation-menu li span {
@@ -88,7 +88,7 @@
     top: 10px;
     height: 10px;
     width: 20px;
-    background: transparent url('../images/admin-tools.png') no-repeat 0 -360px;
+    background: transparent url(/static/admin_tools/images/admin-tools.png) no-repeat 0 -360px;
     /*display:inline-block;*/
 }
 
@@ -204,7 +204,7 @@
     font-size: 12px;
     line-height: 1;
     cursor: pointer;
-    background: url('../images/search.png') no-repeat 10px 8px;
+    background: url(/static/admin_tools/images/search.png) no-repeat 10px 8px;
     border: none;
     -webkit-transition:all 0.4s ease 0s;
     -moz-transition:all 0.4s ease 0s;
