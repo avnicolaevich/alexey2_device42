@@ -1,0 +1,285 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru" xml:lang="ru" >
+<head>
+    <title> Выберите виджеты информационной панели | Device42</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta charset="UTF-8">
+    <style>
+        #jswarning { color: red; font-weight: bold; padding: 18px 0 0 20px; }
+        .nojs-banner {
+            background: #fff6bf  center no-repeat;
+            background-position: 15px 50%;
+            text-align: left;
+            padding: 5px 20px 5px 45px;
+            border-top: 2px solid #ffd324;
+            border-bottom: 2px solid #ffd324;
+        }
+        .ui-helper-hidden-accessible { display:none; }
+        #go-to-bottom{position:fixed;bottom:20px;right:20px;display:none; z-index:999999;}#go-to-bottom a{display:block;width:40px;height:40px;background:#999 url('/static/media/img/admin/backtobottom.png') no-repeat center center;text-indent:-9999px;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;-webkit-transition:.4s all ease;-moz-transition:.4s all ease;-o-transition:.4s all ease;transition:.4s all ease}#go-to-bottom a:hover{background-color:#2da0ce;}
+    </style>
+    <link rel="stylesheet" type="text/css" href="../static/admin/css/base.css" />
+    <link rel="stylesheet" type="text/css" href="../static/admin/css/print.css"  media="print" />
+    <link type="text/css" href="../static/js/jqueryui/jquery-ui-smoothness.min.css" rel="stylesheet"/>
+    <!--[if lte IE 7]><link rel="stylesheet" type="text/css" href="/static/admin/css/ie.css" /><![endif]-->
+
+    <link rel="stylesheet" type="text/css" media="screen" href="../static/admin_tools/css/theming.css" />
+
+    <link rel="stylesheet" href="../static/admin_tools/css/menu.css" type="text/css" media="screen, projection"/>
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="/static/admin_tools/css/menu-ie.css" type="text/css" media="screen, projection"/>
+    <![endif]-->
+
+    <style type="text/css">
+        .buttons {
+            height:5px;
+            vertical-align:top;
+        }
+    </style>
+
+    <script type="text/javascript">window.__admin_media_prefix__ = "../static/admin/";</script>
+    <script type="text/javascript" src="../static/js/jquery-1.7.2.js"></script>
+    <script src="../static/js/jqueryui/jquery-ui-smoothness.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../static/js/custom/header_interaction.js"></script>
+
+
+    <!--<script type="text/javascript" src="/jsi18n/?language=ru"></script>-->
+    <script type="text/javascript" src="../static/js/custom/d42_localize.js"></script>
+
+    <script type="text/javascript" src="../static/js/custom/widgets.js"></script>
+
+    <meta name="robots" content="NONE,NOARCHIVE" />
+    <noscript>
+        <div id="jswarning" class="nojs-banner"> <p>JavaScript seems to be Disabled! Some of the features are unavailable unless JavaScript is enabled.</p> </div>
+    </noscript>
+</head>
+
+<body class="">
+<!-- Container -->
+<div id="container">
+
+    <!-- Header -->
+    <div id="header">
+        <div id="branding">
+
+            <h1 id="site-name">Device42</h1>
+
+
+            <div style="left: 120px;">
+                <input id="search" class="header-item">
+                <div class="dropdown" style="left: 0; display: none;">
+                    <ul>
+                        <li>Result 1</li>
+                        <li>Result 2</li>
+                        <li>Result 3</li>
+                        <li>Result 4</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="logo_user_block" style="right: 0">
+                <div id="company_logo">&nbsp;</div>
+
+                <div id="user-tools" style="display: inline-block;">
+                    <!-- Добро пожаловать, -->
+                    <strong id="user-tools-trigger" class="header-item" style="cursor: pointer;"  trigger-dropdown="true">d42_d42</strong>
+                    <div class="dropdown" style="right: 0; display: none;">
+
+
+
+
+                        <ul>
+
+
+                            <li href="/admin/password_change/">
+
+                                Изменить пароль
+                            </li>
+
+                            <li href="/admin/logout/">
+
+                                Выход
+                            </li>
+                        </ul>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+
+        <script type="text/javascript" src="../static/admin_tools/js/utils.js"></script>
+        <script type="text/javascript" charset="utf-8">
+
+            // Load js files syncronously and conditionally
+            var js_files = [
+                {
+                    src : '../static/admin_tools/js/jquery/jquery.min.js',
+                    test: function() { return typeof(jQuery) == 'undefined'; }
+                },
+                {
+                    src : '../static/admin_tools/js/json.min.js',
+                    test: function() { return typeof(JSON.stringify) == 'undefined'; }
+                },
+                {
+                    src : '../static/admin_tools/js/menu.js',
+                    test: function() { return true; }
+                }
+            ];
+
+            loadScripts(js_files, function(){
+                jQuery(function($) {
+
+                    process_bookmarks(
+                            "/admin/rackraj/tools/dashboard/?add_widgets=",
+                            "",
+                            "Пожалуйста, введите имя для закладки"
+                    );
+
+                });
+            });
+
+        </script>
+        <script type="text/javascript">
+            $(function() {
+                $(".instantsrch").autocomplete({
+                    source: "/internal/ajax/search/",
+                    minLength: 3,
+                    select: function( event, ui ) {
+                        window.location.href = ui.item.link;
+                    }
+                });
+                function split( val ) {
+                    return val.split( /,\s*/ );
+                }
+                $('#id_tags').autocomplete({
+                    source: "/internal/ajax/taglist/",
+                    focus: function() {
+                        return false;
+                    },
+                    select: function( event, ui ) {
+                        var terms = split( this.value );
+                        terms.pop();
+                        terms.push( ui.item.value );
+                        terms.push( "" );
+                        this.value = terms.join( ", " );
+                        return false;
+                    }
+                });
+            });
+        </script>
+
+
+
+
+
+
+        <form id="bookmark-form" action="/admin_tools/menu/add_bookmark/" method="POST">
+            <input type="hidden" name="next" value="/admin/rackraj/tools/dashboard/%3Fadd_widgets%3D" />
+            <input type="hidden" name="url" value="/admin/rackraj/tools/dashboard/%3Fadd_widgets%3D" />
+            <input type="hidden" name="title" value="" />
+            <button id="bookmark-button" type="submit">Добавить</button>
+        </form>
+
+
+
+
+
+        <ul id="navigation-menu">
+
+            <li class="menu-item first"><a href="/admin/rackraj/tools/dashboard/"><span>Главная</span></a></li>
+
+            <li class="menu-item"><a href="#"><span>Центр обработки данных</span><span class="icon"></span></a><ul><li class="menu-item"><a href="/admin/rackraj/building/"><span>Здания</span></a></li><li class="menu-item"><a href="/admin/rackraj/room/"><span>Помещения</span></a></li><li class="menu-item"><a href="/admin/rackraj/rack/"><span>Стойки</span></a></li><li class="menu-item"><a href="#"><span>Power Units</span><span class="icon"></span></a><ul><li class="menu-item"><a href="/admin/rackraj/pdu/"><span>Power Units</span></a></li><li class="menu-item"><a href="/admin/rackraj/pdu_model/"><span>Power Unit Models</span></a></li></ul></li><li class="menu-item"><a href="/admin/rackraj/organisation/"><span>Поставщики</span></a></li><li class="menu-item"><a href="/admin/rackraj/hardware/"><span>Модели оборудования</span></a></li><li class="menu-item"><a href="#"><span>Детали</span><span class="icon"></span></a><ul><li class="menu-item"><a href="/admin/rackraj/partmodel/"><span>Список моделей</span></a></li><li class="menu-item"><a href="/admin/rackraj/part/"><span>Список деталей</span></a></li></ul></li><li class="menu-item"><a href="/admin/rackraj/customer/"><span>Customers/Departments</span></a></li><li class="menu-item"><a href="/admin/rackraj/endusers/"><span>Конечные пользователи</span></a></li><li class="menu-item"><a href="/admin/rackraj/purchase/"><span>Закупки</span></a></li><li class="menu-item"><a href="/admin/rackraj/cable/"><span>Cables</span></a></li><li class="menu-item"><a href="/admin/rackraj/circuit/"><span>Telco Circuits</span></a></li><li class="menu-item"><a href="/admin/rackraj/powercircuit/"><span>Силовые цепи</span></a></li><li class="menu-item"><a href="/admin/rackraj/device_service_profile/"><span>UCS Service Profiles</span></a></li><li class="menu-item"><a href="/admin/rackraj/devicecategory/"><span>Object Categories</span></a></li><li class="menu-item"><a href="/admin/rackraj/tools/devicetree/"><span>Building Hierarchy</span></a></li><li class="menu-item"><a href="/admin/taggit/tag/"><span>Теги</span></a></li></ul></li>
+
+            <li class="menu-item"><a href="#"><span>Устройства</span><span class="icon"></span></a><ul><li class="menu-item"><a href="/admin/rackraj/device/"><span>Все устройства</span></a></li><li class="menu-item"><a href="/admin/rackraj/device_physical/"><span>Физические устройства</span></a></li><li class="menu-item"><a href="/admin/rackraj/device_virtual/"><span>Виртуальные устройства</span></a></li><li class="menu-item"><a href="/admin/rackraj/device_blade/"><span>Блейд-устройства</span></a></li><li class="menu-item"><a href="/admin/rackraj/device_cluster/"><span>Кластерные устройства</span></a></li><li class="menu-item"><a href="/admin/rackraj/device_unknown/"><span>Неизвестные устройства</span></a></li><li class="menu-item"><a href="/admin/rackraj/device_other/"><span>Прочие устройства</span></a></li><li class="menu-item"><a href="#"><span>Активы</span><span class="icon"></span></a><ul><li class="menu-item"><a href="/admin/rackraj/asset/"><span>Активы</span></a></li><li class="menu-item"><a href="/admin/rackraj/rackassettemplate/"><span>Шаблоны актива для монтажа в стойку</span></a></li><li class="menu-item"><a href="/admin/rackraj/patch_panel_model/"><span>Модели коммутационных панелей</span></a></li><li class="menu-item"><a href="/admin/rackraj/patch_panel_module_model/"><span>Модели модулей коммутационных панелей</span></a></li><li class="menu-item"><a href="/admin/rackraj/tap_module_model/"><span>Модели TAP-модулей</span></a></li></ul></li><li class="menu-item"><a href="#"><span>Мобильный вид</span><span class="icon"></span></a><ul><li class="menu-item"><a href="/admin/rackraj/asset_mobile_view/"><span>Актив</span></a></li><li class="menu-item"><a href="/admin/rackraj/device_mobile_view/"><span>Устройство</span></a></li><li class="menu-item"><a href="/admin/rackraj/rack_mobile_view/"><span>Стойка</span></a></li></ul></li></ul></li>
+
+            <li class="menu-item"><a href="#"><span>IPAM</span><span class="icon"></span></a><ul><li class="menu-item"><a href="/admin/rackraj/ip_address/"><span>IP-адреса</span></a></li><li class="menu-item"><a href="/admin/rackraj/switch_vlan/"><span>VLAN</span></a></li><li class="menu-item"><a href="/admin/rackraj/vrfgroup/"><span>Группа VRF</span></a></li><li class="menu-item"><a href="/admin/rackraj/subnetcategory/"><span>Subnet Categories</span></a></li><li class="menu-item"><a href="/admin/rackraj/vlan/"><span>Подсеть</span></a></li><li class="menu-item"><a href="/admin/rackraj/tools/subnettree/"><span>Дерево подсети</span></a></li><li class="menu-item"><a href="/admin/rackraj/netport/"><span>Порты</span></a></li><li class="menu-item"><a href="/admin/rackraj/dns_zone/"><span>Зоны DNS</span></a></li><li class="menu-item"><a href="/admin/rackraj/dns_records/"><span>Записи DNS</span></a></li><li class="menu-item"><a href="/admin/rackraj/natip/"><span>IP NAT</span></a></li></ul></li>
+
+            <li class="menu-item"><a href="#"><span>ПО</span><span class="icon"></span></a><ul><li class="menu-item"><a href="#"><span>ПО</span><span class="icon"></span></a><ul><li class="menu-item"><a href="/admin/rackraj/software_licensing_model/"><span>Software License Models</span></a></li><li class="menu-item"><a href="/admin/rackraj/software/?ignored=NotIgnored"><span>Компоненты ПО</span></a></li><li class="menu-item"><a href="/admin/rackraj/software_detail/"><span>Используемое ПО</span></a></li><li class="menu-item"><a href="/admin/rackraj/softwareeol/"><span>EOL / EOS</span></a></li></ul></li><li class="menu-item"><a href="#"><span>Службы</span><span class="icon"></span></a><ul><li class="menu-item"><a href="/admin/rackraj/theservice/?service_type__exact=tracked"><span>Службы</span></a></li><li class="menu-item"><a href="/admin/rackraj/servicedetail/"><span>Экземпляры службы</span></a></li><li class="menu-item"><a href="/admin/rackraj/serviceschedule/"><span>Service Schedules</span></a></li><li class="menu-item"><a href="/admin/rackraj/serviceport/"><span>Service Ports</span></a></li><li class="menu-item"><a href="/admin/rackraj/serviceportremoteipstats/?service_port_remote_ip__service_port_ip__is_listening__exact=1"><span>Client Service Port Statistics</span></a></li><li class="menu-item"><a href="/admin/rackraj/networkshare/"><span>Network Shares</span></a></li></ul></li><li class="menu-item"><a href="/admin/rackraj/appcomp/"><span>Компоненты приложения</span></a></li><li class="menu-item"><a href="#"><span>Операционные системы</span><span class="icon"></span></a><ul><li class="menu-item"><a href="/admin/rackraj/os_licensing_model/"><span>OS License Models</span></a></li><li class="menu-item"><a href="/admin/rackraj/os/"><span>Операционные системы</span></a></li><li class="menu-item"><a href="/admin/rackraj/device_os/"><span>Operating Systems In Use</span></a></li><li class="menu-item"><a href="/admin/rackraj/oseol/"><span>EOL/EOS</span></a></li></ul></li><li class="menu-item"><a href="#"><span>Сертификаты</span><span class="icon"></span></a><ul><li class="menu-item"><a href="/admin/rackraj/certificate/"><span>Сертификаты</span></a></li><li class="menu-item"><a href="/admin/rackraj/devicecertificate/"><span>Certificate Instances</span></a></li></ul></li></ul></li>
+
+            <li class="menu-item"><a href="/admin/rowmgmt/password/"><span>Пароли</span></a></li>
+
+            <li class="menu-item"><a href="#"><span>Отчеты</span><span class="icon"></span></a><ul><li class="menu-item"><a href="/admin/reporting/reports/"><span>Отчеты</span></a></li><li class="menu-item"><a href="/admin/reporting/dashboards/"><span>Dashboards</span></a></li><li class="menu-item"><a href="/admin/rackraj/alertnotification"><span>Уведомления</span></a></li><li class="menu-item"><a href="/admin/rackraj/sensorrule"><span>Настроить оповещения</span></a></li><li class="menu-item"><a href="/admin/reporting/delayed_report_tracker"><span>Excel Reports Status</span></a></li></ul></li>
+
+            <li class="menu-item"><a href="#"><span>Инструменты</span><span class="icon"></span></a><ul><li class="menu-item"><a href="/admin/rackraj/tools/import_api_xls/"><span>Импорт/экспорт (xls)</span></a></li><li class="menu-item"><a href="#"><span>Автоопределение</span><span class="icon"></span></a><ul><li class="menu-item"><a href="/admin/autodiscover/remotecollector/"><span>Remote Collectors</span></a></li><li class="menu-item"><a href="/admin/autodiscover/netmap/"><span>TCP Port Scan</span></a></li><li class="menu-item"><a href="/admin/autodiscover/switch/"><span>SNMP</span></a></li><li class="menu-item"><a href="/admin/autodiscover/pingsweep/"><span>Эхо-тестирование</span></a></li><li class="menu-item"><a href="/admin/autodiscover/vserver/"><span>HyperVisors / *nix / Windows</span></a></li><li class="menu-item"><a href="/admin/autodiscover/ucsmanager/"><span>UCS/ACI/F5 API Manager</span></a></li><li class="menu-item"><a href="/admin/autodiscover/dcm/"><span>IPMI / Redfish</span></a></li><li class="menu-item"><a href="/admin/autodiscover/cloudaccount/"><span>Облако</span></a></li><li class="menu-item"><a href="/admin/autodiscover/dnszone/"><span>Синхронизация зон DNS (односторонняя)</span></a></li><li class="menu-item"><a href="/admin/autodiscover/sslcertificates/"><span>Сертификаты</span></a></li><li class="menu-item"><a href="/admin/autodiscover/nmap/"><span>Nmap</span></a></li><li><a href="http://www.device42.com/autodiscovery/" target="_blank">External discovery tools</a></li></ul></li><li class="menu-item"><a href="#"><span>Шаблоны и групповые операции</span><span class="icon"></span></a><ul><li class="menu-item"><a href="/admin/rackraj/transferlocation/"><span>Transfer Between Locations</span></a></li><li class="menu-item"><a href="/admin/rackraj/qr_profiles/"><span>Профили QR</span></a></li><li class="menu-item"><a href="/admin/rackraj/asset_number_profile/"><span>Профиль номера актива</span></a></li><li class="menu-item"><a href="/admin/rackraj/imgfile/"><span>Файлы изображений</span></a></li><li class="menu-item"><a href="/admin/rackraj/asset_action/"><span>Действия по событиям жизненного цикла</span></a></li><li class="menu-item"><a href="/admin/rackraj/device/whatif/"><span>Что если</span></a></li></ul></li><li class="menu-item"><a href="#"><span>Настраиваемые поля</span><span class="icon"></span></a><ul><li class="menu-item"><a href="/admin/rackraj/appcomp_custom_key/"><span>Компоненты приложения</span></a></li><li class="menu-item"><a href="/admin/rackraj/asset_custom_key/"><span>Активы</span></a></li><li class="menu-item"><a href="/admin/rackraj/building_custom_key/"><span>Здания</span></a></li><li class="menu-item"><a href="/admin/rackraj/cable_custom_key/"><span>Cables</span></a></li><li class="menu-item"><a href="/admin/rackraj/certificate_custom_key/"><span>Сертификаты</span></a></li><li class="menu-item"><a href="/admin/rackraj/customer_custom_key/"><span>Клиенты</span></a></li><li class="menu-item"><a href="/admin/rackraj/device_custom_key/"><span>Устройства</span></a></li><li class="menu-item"><a href="/admin/rackraj/dns_records_custom_key/"><span>Записи DNS</span></a></li><li class="menu-item"><a href="/admin/rackraj/hardware_custom_key/"><span>Модели оборудования</span></a></li><li class="menu-item"><a href="/admin/rackraj/ip_address_custom_key/"><span>IP-адреса</span></a></li><li class="menu-item"><a href="/admin/rowmgmt/password_custom_key/"><span>Пароли</span></a></li><li class="menu-item"><a href="/admin/rackraj/netport_custom_key/"><span>Порты</span></a></li><li class="menu-item"><a href="/admin/rackraj/pdu_custom_key/"><span>Power Units</span></a></li><li class="menu-item"><a href="/admin/rackraj/purchase_custom_key/"><span>Закупки</span></a></li><li class="menu-item"><a href="/admin/rackraj/rack_custom_key/"><span>Стойки</span></a></li><li class="menu-item"><a href="/admin/rackraj/room_custom_key/"><span>Помещения</span></a></li><li class="menu-item"><a href="/admin/rackraj/theservice_custom_key/"><span>Службы</span></a></li><li class="menu-item"><a href="/admin/rackraj/servicedetail_custom_key/"><span>Экземпляры службы</span></a></li><li class="menu-item"><a href="/admin/rackraj/software_custom_key/"><span>ПО</span></a></li><li class="menu-item"><a href="/admin/rackraj/software_detail_custom_key/"><span>Software in Use</span></a></li><li class="menu-item"><a href="/admin/rackraj/vlan_custom_key/"><span>Подсети</span></a></li><li class="menu-item"><a href="/admin/rackraj/circuit_custom_key/"><span>Telco Circuits</span></a></li><li class="menu-item"><a href="/admin/rackraj/switch_vlan_custom_key/"><span>Сети VLAN</span></a></li></ul></li><li class="menu-item"><a href="/admin/rackraj/tools/license/"><span>Лицензирование</span></a></li><li class="menu-item"><a href="/admin/rackraj/tools/update/"><span>Обновить</span></a></li><li class="menu-item"><a href="/admin/rackraj/tools/export/"><span>Экспорт (CSV-формат)</span></a></li><li class="menu-item"><a href="#"><span>Устройства контроля</span><span class="icon"></span></a><ul><li class="menu-item"><a href="/admin/autodiscover/managemonappips/"><span>Управлять контролируемыми IP-адресами</span></a></li></ul></li></ul></li>
+
+            <li class="menu-item disabled bookmark"><a href="#"><span>Закладки</span></a></li>
+
+            <li class="menu-item"><a href="#"><span>Справка</span><span class="icon"></span></a><ul><li><a href="http://www.device42.com/new_ticket/" target="_blank">Открыть заявку в службу поддержки</a></li><li><a href="/admin/rackraj/tools/helpsearch/" target="_blank">Поиск документации/Кб</a></li><li><a href="http://docs.device42.com/" target="_blank">Перейти к онлайн-документации</a></li><li><a href="http://www.device42.com/new_feature/" target="_blank">Отправить заявку на функцию</a></li><li><a href="http://www.device42.com/new_feedback/" target="_blank">Оставить отзыв</a></li></ul></li>
+
+        </ul>
+
+
+
+
+
+    </div>
+    <!-- END Header -->
+
+    <div class="breadcrumbs">
+        <a href='/admin/rackraj/tools/dashboard/'>Главная</a>
+        &rsaquo; Выберите виджеты информационной панели
+    </div>
+
+
+
+    <!-- Content -->
+    <div id="content" class="colM">
+
+
+
+
+
+
+
+        <div>
+            <b>Выберите виджеты информационной панели</b></br></br
+            <form name="dwidgets" id="dwidgets" >
+
+
+                <input type="checkbox" id="bldgstats" name="bldgstats" checked="checked" > &nbsp Статистика по зданию<br><br>
+
+
+
+                <input type="checkbox" id="devicestats" name="devicestats" checked="checked" > &nbsp Статистика по устройству<br><br>
+
+
+
+                <input type="checkbox" id="ipstats" name="ipstats" checked="checked" > &nbsp Статистика по IP<br><br>
+
+
+                <div class="buttons">
+                    <input type="button" name="Check_All" value='Выбрать все'
+                           onClick="CheckAll(document.widgets)">
+                    <input type="button" name="Un_CheckAll" value='Убрать все'
+                           onClick="UnCheckAll(document.widgets)">
+                </div>
+                <br><br><br>
+            </form>
+            <form id="AddDashboardButtons" method="get" action="">
+                <input type="submit" value='Сохранить' style="width: 150px; height: 30px; font-size: 14px;">
+            </form>
+        </div>
+        <br><br>
+
+
+
+
+        <br class="clear" />
+    </div>
+
+    <!-- END Content -->
+    <div id="footer"></div>
+    <div style="display: none;" id="go-to-bottom"><a style="cursor:pointer;">Back to Top</a></div>
+
+</div>
+<!-- END Container -->
+
+
+
+</body>
+</html>

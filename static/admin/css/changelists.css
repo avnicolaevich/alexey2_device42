@@ -74,7 +74,9 @@
     border-left: 1px solid #ddd;
     /*following 4 added for long character names, not working in IE, safari */
     max-width: 200px;
-    word-wrap: break-word;    
+    word-wrap: break-word;
+    vertical-align: middle;
+    font-size: 12px;
 }
 #changelist table tbody td {
     overflow: hidden;
@@ -114,8 +116,9 @@
 #changelist #toolbar {
     padding: 3px;
     border-bottom: 1px solid #ddd;
-    background: #e1e1e1 url(/static/admin/img/nav-bg.gif) top left repeat-x;
+    /*background: #e1e1e1 url(/static/admin/img/nav-bg.gif) top left repeat-x;*/
     color: #666;
+    background: #f4f5f7;
     position: relative;
 }
 
@@ -125,11 +128,33 @@
 }
 
 #changelist #toolbar form #searchbar {
-    padding: 2px;
+    -webkit-border-radius: 3px 3px 3px 3px;
+    border-radius: 3px 3px 3px 3px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    font-size: 14px;
+    line-height: 1;
+    height: 30px;
+    max-width: none;
+    padding: 5px 24px 5px 10px;
+    -moz-transition: width 100ms ease-in-out;
+    -ms-transition: width 100ms ease-in-out;
+    -webkit-transition: width 100ms ease-in-out;
+    transition: width 100ms ease-in-out;
+    width: 160px;
+    margin-left: 3px;
+}
+
+#changelist #toolbar form #searchbar:focus {
+    background-color: #fff;
+    outline: 0;
+    box-shadow: 0 0 0 2px #4c9aff;
 }
 
 #changelist #changelist-search img {
     vertical-align: middle;
+    display: none;
 }
 
 /* FILTER COLUMN */
@@ -140,7 +165,7 @@
     left: 0;
     z-index: 1000;
     width: 160px;
-    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
     background: #efefef;
     margin: 0;
     overflow-y: auto;
@@ -148,8 +173,10 @@
 
 #changelist-filter h2 {
     font-size: 11px;
-    padding: 2px 5px;
     border-bottom: 1px solid #ddd;
+    color: #fff;
+    padding: 14px 5px 14px 15px;
+    background: #0747A6;
 }
 
 #changelist-filter h3 {
@@ -304,8 +331,22 @@
 
 #changelist .actions select {
     border: 1px solid #aaa;
-    margin-left: 0.5em;
-    padding: 1px 2px;
+    -webkit-border-radius: 3px 3px 3px 3px;
+    border-radius: 3px 3px 3px 3px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    font-size: 14px;
+    line-height: 1;
+    height: 30px;
+    max-width: none;
+    padding: 5px 24px 5px 10px;
+    -moz-transition: width 100ms ease-in-out;
+    -ms-transition: width 100ms ease-in-out;
+    -webkit-transition: width 100ms ease-in-out;
+    transition: width 100ms ease-in-out;
+    width: auto;
+    margin-left: 3px;
 }
 
 #changelist .actions label {
