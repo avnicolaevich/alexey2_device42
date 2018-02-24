@@ -96,7 +96,8 @@
 
 #header ul#navigation-menu li:hover ul li:hover,
 #header ul#navigation-menu li.over ul li:hover,
-#header ul#navigation-menu li.selected ul li:hover {
+#header ul#navigation-menu li.selected ul li:hover,
+#header ul#navigation-menu .menu-item.selected ul .menu-item.selected {
     background-color: #ebecf0;
 }
 
