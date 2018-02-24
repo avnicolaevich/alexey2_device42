@@ -473,39 +473,44 @@ input[type=text], input[type=password], textarea, select, .vTextField {
     cursor: pointer;
     outline: none;
     border: none;
-    transition: box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-    transition-delay: 0.2s;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
 }
 
+.button:hover, input[type=submit]:hover, input[type=button]:hover, .submit-row input:hover {
+    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
+    background-color: #ebecf0;
+    outline: none;
+}
+
 .button:active, input[type=submit]:active, input[type=button]:active {
-    background-image: url(/static/admin/img/nav-bg-reverse.gif);
-    background-position: top;
+    /*background-image: url(/static/admin/img/nav-bg-reverse.gif);*/
+    /*background-position: top;*/
 }
 
 .button[disabled], input[type=submit][disabled], input[type=button][disabled] {
-	background-image: url(/static/admin/img/nav-bg.gif);
-	background-position: bottom;
-	opacity: 0.4;
+	/*background-image: url(/static/admin/img/nav-bg.gif);*/
+	/*background-position: bottom;*/
+	/*opacity: 0.4;*/
 }
 
 .button.default, input[type=submit].default, .submit-row input.default {
     border: 2px solid #5b80b2;
-    background: #7CA0C7 url(/static/admin/img/default-bg.gif) bottom repeat-x;
+    /*background: #7CA0C7 url(/static/admin/img/default-bg.gif) bottom repeat-x;*/
     font-weight: bold;
     color: white;
     float: right;
 }
 
 .button.default:active, input[type=submit].default:active {
-    background-image: url(/static/admin/img/default-bg-reverse.gif);
-    background-position: top;
+    /*background-image: url(/static/admin/img/default-bg-reverse.gif);*/
+    /*background-position: top;*/
 }
 
 .button[disabled].default, input[type=submit][disabled].default, input[type=button][disabled].default {
-	background-image: url(/static/admin/img/default-bg.gif);
-	background-position: bottom;
-	opacity: 0.4;
+	/*background-image: url(/static/admin/img/default-bg.gif);*/
+	/*background-position: bottom;*/
+	/*opacity: 0.4;*/
 }
 
 
@@ -656,18 +661,18 @@ div.breadcrumbs {
 /* ACTION ICONS */
 
 .addlink {
-    padding-left: 12px;
-    background: url(/static/admin/img/icon_addlink.gif) 0 .2em no-repeat;
+    /*padding-left: 12px;*/
+    /*background: url(/static/admin/img/icon_addlink.gif) 0 .2em no-repeat;*/
 }
 
 .changelink {
-    padding-left: 12px;
-    background: url(/static/admin/img/icon_changelink.gif) 0 .2em no-repeat;
+    /*padding-left: 12px;*/
+    /*background: url(/static/admin/img/icon_changelink.gif) 0 .2em no-repeat;*/
 }
 
 .deletelink {
-    padding-left: 12px;
-    background: url(/static/admin/img/icon_deletelink.gif) 0 .25em no-repeat;
+    /*padding-left: 12px;*/
+    /*background: url(/static/admin/img/icon_deletelink.gif) 0 .25em no-repeat;*/
 }
 
 a.deletelink:link, a.deletelink:visited {
@@ -702,14 +707,14 @@ a.deletelink:hover {
 .object-tools li {
     display: block;
     float: left;
-    background: url(/static/admin/img/tool-left.gif) 0 0 no-repeat;
+    /*background: url(/static/admin/img/tool-left.gif) 0 0 no-repeat;*/
     padding: 0 0 0 8px;
     margin-left: 2px;
     height: 16px;
 }
 
 .object-tools li:hover {
-    background: url(/static/admin/img/tool-left_over.gif) 0 0 no-repeat;
+    /*background: url(/static/admin/img/tool-left_over.gif) 0 0 no-repeat;*/
 }
 
 .object-tools a:link, .object-tools a:visited {
@@ -718,29 +723,29 @@ a.deletelink:hover {
     color: white;
     padding: .1em 14px .1em 8px;
     height: 14px;
-    background: #999 url(/static/admin/img/tool-right.gif) 100% 0 no-repeat;
+    /*background: #999 url(/static/admin/img/tool-right.gif) 100% 0 no-repeat;*/
 }
 
 .object-tools a:hover, .object-tools li:hover a {
-    background: #5b80b2 url(/static/admin/img/tool-right_over.gif) 100% 0 no-repeat;
+    /*background: #5b80b2 url(/static/admin/img/tool-right_over.gif) 100% 0 no-repeat;*/
 }
 
 .object-tools a.viewsitelink, .object-tools a.golink {
-    background: #999 url(/static/admin/img/tooltag-arrowright.gif) top right no-repeat;
+    /*background: #999 url(/static/admin/img/tooltag-arrowright.gif) top right no-repeat;*/
     padding-right: 28px;
 }
 
 .object-tools a.viewsitelink:hover, .object-tools a.golink:hover {
-    background: #5b80b2 url(/static/admin/img/tooltag-arrowright_over.gif) top right no-repeat;
+    /*background: #5b80b2 url(/static/admin/img/tooltag-arrowright_over.gif) top right no-repeat;*/
 }
 
 .object-tools a.addlink {
-    background: #999 url(/static/admin/img/tooltag-add.gif) top right no-repeat;
+    /*background: #999 url(/static/admin/img/tooltag-add.gif) top right no-repeat;*/
     padding-right: 28px;
 }
 
 .object-tools a.addlink:hover {
-    background: #5b80b2 url(/static/admin/img/tooltag-add_over.gif) top right no-repeat;
+    /*background: #5b80b2 url(/static/admin/img/tooltag-add_over.gif) top right no-repeat;*/
 }
 
 .object-tools a.historylink {
@@ -764,13 +769,12 @@ a.deletelink:hover {
     white-space: nowrap;
     padding: 0 10px 0 10px;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    transition-delay: 0.2s;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
 }
 
 .object-tools a.historylink:hover{
     box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
-    color: #fff;
+    background-color: #ebecf0;
     outline: none;
 }
 
@@ -864,12 +868,7 @@ table#change-history tbody th {
 
 /* HEADER */
 
-.login #header {
-    margin-top: 0;
-}
-
 #header {
-    margin-top: 35px;
     background: #0747A6;
     color: #fff;
     overflow: hidden;
@@ -928,7 +927,7 @@ table#change-history tbody th {
 .header-item {
     padding: 7px 10px;
     font-size: 11px;
-    margin: 7px;
+    margin: 6px 7px 7px 7px;
     background: #07357c;
     border-radius: 3px;
     color: white;
@@ -1002,15 +1001,13 @@ table#change-history tbody th {
     cursor: pointer;
     outline: none;
     border: none;
-    transition: box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-    transition-delay: 0.2s;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
 }
 
-#AddDashboardButtons button:active {
+#AddDashboardButtons button:hover {
     box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
-    transition-delay: 0s;
-    background: #505f79;
+    background: #ebecf0;
     outline: none;
 }
 

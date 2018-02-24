@@ -22,29 +22,25 @@
 }
 
 #header #navigation-menu {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
     height: 35px;
-    z-index: 9999;
-    background-color: #f4f5f7;
+    background-color: #0747A6;
     box-shadow: 0 3px 7px rgba(0, 0, 0, 0.2);
 }
 
 #header #bookmark-button {
     cursor: pointer;
-    position: fixed;
-    top: 0;
-    right: 15px;
+    position: absolute;
+    top: auto;
+    right: 30px;
     height: 25px;
     width: 24px;
-    margin-top: 4px;
+    /*margin-top: 4px;*/
     border: none;
     text-indent: -5000px;
     overflow: hidden;
-    z-index: 10000;
-    background: transparent url(/static/admin_tools/images/admin-tools.png) no-repeat 0 -425px;
+    border-radius: 3px;
+    outline: none;
+    background: #07357c url(/static/admin_tools/images/admin-tools.png) no-repeat 0 -425px;
 }
 
 #header #bookmark-button.bookmarked {
@@ -53,7 +49,7 @@
 
 #header ul#navigation-menu li {
     float: left;
-    border-right: 1px solid #dfe1e6;
+    /*border-right: 1px solid #dfe1e6;*/
     transition: all .4s ease;
 }
 
@@ -61,8 +57,8 @@
     display: table;
     text-transform: uppercase;
     text-decoration: none;
-    padding: 9px 30px 9px 15px;
-    color: #42526E;
+    padding: 11px 30px 10px;
+    color: #fff;
     text-align:left;
 }
 
@@ -73,8 +69,8 @@
 
 #header ul#navigation-menu li.first a {
     margin: 6px 0 0 5px;
-    padding-top: 6px;
-    text-indent: 14px;
+    padding-top: 5px;
+    text-indent: 4px;
     background: url(/static/admin_tools/images/admin-tools.png) no-repeat 5px -381px;
 }
 
@@ -92,9 +88,15 @@
     /*display:inline-block;*/
 }
 
-#header ul#navigation-menu li:hover,
-#header ul#navigation-menu li.over,
-#header ul#navigation-menu li.selected {
+#header ul#navigation-menu .menu-item:hover,
+#header ul#navigation-menu .menu-item.over,
+#header ul#navigation-menu .menu-item.selected {
+    background-color: #0a67f1;
+}
+
+#header ul#navigation-menu li:hover ul li:hover,
+#header ul#navigation-menu li.over ul li:hover,
+#header ul#navigation-menu li.selected ul li:hover {
     background-color: #ebecf0;
 }
 
@@ -132,9 +134,14 @@
     border-style: solid;
     border-bottom-width: 1px;
     border-width: 0 1px 1px 1px;*/
+    color: #42526E;
     text-transform: none;
     min-width: 180px;
-    
+    transition: all .4s ease;
+}
+
+#header ul#navigation-menu li ul li:hover a {
+    color: #fff;
 }
 
 #header ul#navigation-menu li ul li span.icon {
@@ -169,11 +176,11 @@
     background-color: #F4F5F7;
 }
 
-#header ul#navigation-menu li:hover ul li,
-#header ul#navigation-menu li.over ul li,
-#header ul#navigation-menu li ul li:hover ul li,
-#header ul#navigation-menu li ul li.over ul li {
-    /*background-color: #F4F5F7;*/
+#header ul#navigation-menu li:hover ul li a,
+#header ul#navigation-menu li.over ul li a,
+#header ul#navigation-menu li ul li:hover ul li a,
+#header ul#navigation-menu li ul li.over ul li a {
+    color: #42526E;
 }
 
 #header ul#navigation-menu li ul li:hover,
